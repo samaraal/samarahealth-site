@@ -1,9 +1,14 @@
-SAMARAHEALTH.IN — UPDATE v2.1
+SAMARAHEALTH.IN — DIRECTOR'S MESSAGE REFINED
 
 Replace these files at the same paths in the repository:
-  js/i18n.js          (the Tamil text the site shows)
-  source/content.py   (source copy of the same text)
-  VERSION.txt         (new — version history, for reference)
+  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
+  css/site.css
+  js/i18n.js
+  source/build.py
+  source/content.py
+  assets/photos/dr-krishnan-chellammal.jpg
+  assets/photos/dr-krishnan-chellammal.webp
 
-Change: Tamil director's quote now ends "…பயணத்தில் துணை இருப்பதே ஆகும்."
-Layout, English quote and photo are unchanged. Refresh once (Ctrl+F5) after uploading.
+What changed: the director's photo is now a clean, centred portrait on a soft pink background,
+and the quote is set in two calm, easy-to-read lines. (All pages change only because a lighter
+font weight is now loaded.) Refresh once (Ctrl+F5) after uploading.
