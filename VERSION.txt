@@ -1,6 +1,6 @@
 samarahealth.in — version history
 ---------------------------------
-v2.4  (26 Sep 2026)  About page › Leadership: full profile of Dr. Krishnan Chellammal — photo and polished paragraph biography (English + Tamil).
+v2.4  (26 Sep 2026)  About page › Leadership: full profile of Dr. Krishnan Chellammal — new professional portrait and polished paragraph biography (English + Tamil).
 v2.3  (26 Sep 2026)  Director's photo frame widened slightly so the Samara name badge is fully visible.
 v2.2  (26 Sep 2026)  Director's photo frame narrowed from the right so her face sits in the centre. Photo file unchanged.
 v2.1  (26 Sep 2026)  Tamil director's quote: "உடன் நடப்பதே" → "துணை இருப்பதே". Nothing else changed.

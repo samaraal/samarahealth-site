@@ -301,8 +301,11 @@ html[lang="ta"] .msg-quote p{font-style:normal;font-size:clamp(1.15rem,2vw,1.4re
 /* leadership profile */
 .profile{display:grid;grid-template-columns:280px 1fr;gap:clamp(28px,4vw,56px);align-items:start;padding:clamp(28px,4vw,48px)}
 .profile-photo{position:relative;margin:0;position:sticky;top:120px}
-.profile-frame{border-radius:160px 160px 20px 20px;overflow:hidden;aspect-ratio:5/8;border:5px solid #fff;box-shadow:var(--shadow-lg);background:var(--blush-2)}
-.profile-frame img{width:100%;height:100%;object-fit:cover;object-position:0% 50%}
+.profile-frame{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 14px 34px -14px rgba(70,12,45,.35);background:var(--blush-2)}
+.profile-frame::after{content:"";position:absolute;inset:0;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.profile-photo::after{content:"";display:block;height:3px;width:56px;margin:16px auto 0;border-radius:3px;background:var(--berry)}
+.profile-frame picture{display:block;height:100%}
+.profile-frame img{width:100%;height:100%;object-fit:cover}
 .profile-feather{position:absolute;right:-14px;top:10px;width:44px;filter:drop-shadow(0 6px 12px rgba(214,36,122,.25))}
 .profile-body h3{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-bottom:.15em}
 .card .profile-role{color:var(--berry);font-weight:700;margin:0 0 2px}

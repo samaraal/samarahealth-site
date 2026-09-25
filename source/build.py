@@ -442,8 +442,7 @@ about = page_head('about.k', 'about.h1', 'about.lead', 'nav.about') + f'''
     <div class="sec-head reveal">{t("about.lead.h","h2")}{t("about.lead.p","p")}</div>
     <article class="card profile reveal">
       <figure class="profile-photo">
-        <div class="profile-frame">{pic("dr-krishnan-chellammal", "Dr. Krishnan Chellammal, Director, Samara Health Care LLP", w=800, h=1000)}</div>
-        {feather("profile-feather")}
+        <div class="profile-frame">{pic("dr-krishnan-chellammal-profile", "Dr. Krishnan Chellammal, Director, Samara Health Care LLP", w=800, h=1000)}</div>
       </figure>
       <div class="profile-body">
         {t("about.p1","h3")}
