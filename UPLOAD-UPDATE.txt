@@ -1,14 +1,17 @@
-SAMARAHEALTH.IN — HERO PHOTO UPDATE
+SAMARAHEALTH.IN — NEW PHOTOS UPDATE
 
 Replace / add these files at the same paths in the repository:
   index.html
+  careers.html
   css/site.css
   js/i18n.js
   source/build.py
   source/content.py
-  assets/photos/centre-building.jpg   (new)
-  assets/photos/centre-building.webp  (new)
+  assets/photos/  — these 16 files (8 photos, each as .jpg and .webp):
+     centre-building      (home page: the whole building, from the photographer's set)
+     reception            (home page: reception with the lamps)
+     ribbon-cutting, lamp-lighting, inauguration-dais, honouring-guests  (home page gallery)
+     centre-signboard     (About + Contact pages: the lit Samara signboard)
+     care-team            (Careers page: new — the nursing and care team)
 
-What changed: the large home-page picture is now the actual Samara building,
-with the "Our first centre — Mogappair, Chennai – 37" card on it (English + Tamil).
-If the old picture still shows after uploading, refresh the page once (Ctrl+F5).
+If the old pictures still show after uploading, refresh once (Ctrl+F5).

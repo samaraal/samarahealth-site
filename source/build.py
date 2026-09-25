@@ -237,7 +237,7 @@ home = f'''<section class="hero">
       <p class="hero-note"><span class="dot" aria-hidden="true"></span>{t("home.note")}</p>
     </div>
     <div class="hero-media">
-      <div class="arch">{pic("centre-building", "The Samara Assisted Living building at 23A, Mogappair, Chennai", eager=True, w=1040, h=1160)}</div>
+      <div class="arch">{pic("centre-building", "The Samara Assisted Living building at 23A, Mogappair, Chennai", eager=True, w=1050, h=1400)}</div>
       <div class="float-card fc-a">
         <span class="ic-badge">{icon("heart")}</span>
         <div><strong>24×7</strong>{t("home.float.l")}</div>
@@ -527,8 +527,8 @@ careers = page_head('car.k', 'car.h1', 'car.lead', 'nav.careers') + f'''
 <section class="section tint tight">
   <div class="wrap">
     <figure class="photo reveal" style="max-width:980px;margin-inline:auto">
-      {pic("reception", "The reception at Samara Assisted Living")}
-      <figcaption>{t("home.centre.cap")}</figcaption>
+      {pic("care-team", "The Samara nursing and care team at the Mogappair centre", w=1600, h=1067)}
+      <figcaption>{t("car.team.cap")}</figcaption>
     </figure>
   </div>
 </section>'''
