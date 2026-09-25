@@ -1,14 +1,17 @@
-SAMARAHEALTH.IN — DIRECTOR'S MESSAGE REFINED
+SAMARAHEALTH.IN — v2.1  (restore point: "Director's message" version)
+
+This is exactly the "Director's message" version you have live (single quote,
+original photo, same layout) — with ONE change: the Tamil quote now ends
+"…பயணத்தில் துணை இருப்பதே ஆகும்."
 
 Replace these files at the same paths in the repository:
-  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
+  index.html
   css/site.css
   js/i18n.js
   source/build.py
   source/content.py
   assets/photos/dr-krishnan-chellammal.jpg
   assets/photos/dr-krishnan-chellammal.webp
+  VERSION.txt   (version history)
 
-What changed: the director's photo is now a clean, centred portrait on a soft pink background,
-and the quote is set in two calm, easy-to-read lines. (All pages change only because a lighter
-font weight is now loaded.) Refresh once (Ctrl+F5) after uploading.
+Do NOT upload the later "director-message refined" zip. Refresh once (Ctrl+F5) after uploading.
