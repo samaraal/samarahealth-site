@@ -1,0 +1,5 @@
+samarahealth.in — version history
+---------------------------------
+v2.1  (26 Sep 2026)  Tamil director's quote: "உடன் நடப்பதே" → "துணை இருப்பதே". Nothing else changed.
+v2.0  (Sep 2026)     Redesign: magenta/pink theme, photos from the inauguration, building hero,
+                     director's message, FAQ, admission steps, gallery, logo feather restored.
