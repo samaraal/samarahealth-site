@@ -48,6 +48,24 @@
       if(e.key === 'Escape' && nav.classList.contains('open')){ nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.focus(); }
     });
   }
+  // header shadow once the page scrolls
+  var hdr = document.getElementById('site-header');
+  if(hdr){
+    var onScroll = function(){ hdr.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  }
+
+  // gentle reveal-on-scroll (content stays visible if unsupported)
+  var rev = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && rev.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    rev.forEach(function(el){ io.observe(el); });
+  } else {
+    rev.forEach(function(el){ el.classList.add('in'); });
+  }
+
   var year = document.getElementById('year');
   if(year) year.textContent = String(new Date().getFullYear());
 

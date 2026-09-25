@@ -11,6 +11,8 @@ Static website (no build step needed to publish). English + Tamil (button at the
 | Contact & enquiry form | `contact.html` |
 | Privacy Notice | `privacy.html` |
 
+- Brand colours (from the Samara logo): crimson `#9C0040`, charcoal `#3C3C3C`, feather gradient `#C3025A → #EC1042 → #F67017 → #F9A800`.
+- Photos (taken from the inauguration video): `assets/photos/` (JPG + WebP). Feather ornament: `assets/samara-feather.png`.
 - Styles: `css/site.css` · Behaviour (language, menu, form): `js/site.js` · Settings: `js/config.js`
 - All English and Tamil text: `js/i18n.js` (generated from `source/content.py`).
 - The enquiry form saves into the ERP (**Enquiries** page) through the Supabase function
