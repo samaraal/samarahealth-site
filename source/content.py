@@ -228,6 +228,7 @@ T = {
 
 # ---------- 2026-09 redesign: new and updated text ----------
 T.update({
+"home.float.loc": ("Mogappair, Chennai – 37", "முகப்பேர், சென்னை – 37"),
 "top.care": ("24×7 nursing care", "24×7 செவிலியர் பராமரிப்பு"),
 "home.h1a": ("Care that", "குடும்பம் போல"),
 "home.h1b": ("feels like family.", "அக்கறையுடன் பராமரிப்பு."),

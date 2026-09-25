@@ -237,15 +237,15 @@ home = f'''<section class="hero">
       <p class="hero-note"><span class="dot" aria-hidden="true"></span>{t("home.note")}</p>
     </div>
     <div class="hero-media">
-      <div class="arch">{pic("welcome-wall", "The Samara Assisted Living name wall, garlanded on opening day", eager=True)}</div>
+      <div class="arch">{pic("centre-building", "The Samara Assisted Living building at 23A, Mogappair, Chennai", eager=True, w=1040, h=1160)}</div>
       <div class="float-card fc-a">
         <span class="ic-badge">{icon("heart")}</span>
         <div><strong>24×7</strong>{t("home.float.l")}</div>
       </div>
-      <figure class="float-card fc-b">
-        {pic("centre-building", "Samara Assisted Living building, 23A, Mogappair, Chennai", eager=True, w=720, h=806)}
-        <figcaption>{icon("pin")}<span>{t("home.badge")}</span></figcaption>
-      </figure>
+      <div class="float-card fc-b">
+        <span class="fc-pin">{icon("pin")}</span>
+        <div><strong class="fc-small">{t("home.float.p")}</strong><span>{t("home.float.loc")}</span></div>
+      </div>
     </div>
   </div>
 </section>
