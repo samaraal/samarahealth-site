@@ -1,14 +1,14 @@
-SAMARAHEALTH.IN — DIRECTOR'S MESSAGE ON THE HOME PAGE
+SAMARAHEALTH.IN — DIRECTOR'S MESSAGE REFINED
 
-Replace / add these files at the same paths in the repository:
-  index.html
+Replace these files at the same paths in the repository:
+  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
   css/site.css
   js/i18n.js
   source/build.py
   source/content.py
-  assets/photos/dr-krishnan-chellammal.jpg   (new)
-  assets/photos/dr-krishnan-chellammal.webp  (new)
+  assets/photos/dr-krishnan-chellammal.jpg
+  assets/photos/dr-krishnan-chellammal.webp
 
-What changed: a "A message from our Director" section with Dr. Krishnan Chellammal's
-photo and quote, placed just below the 24×7 / 3 / 4 / 1 figures on the home page
-(English and Tamil). Refresh once (Ctrl+F5) after uploading.
+What changed: the director's photo is now a clean, centred portrait on a soft pink background,
+and the quote is set in two calm, easy-to-read lines. (All pages change only because a lighter
+font weight is now loaded.) Refresh once (Ctrl+F5) after uploading.

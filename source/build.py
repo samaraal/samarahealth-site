@@ -169,7 +169,7 @@ def page(fname, title_key, desc, body, active=None, og_image='assets/photos/cent
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css?v={VERSION}">
 <script>document.documentElement.classList.add('js')</script>
 {LDJSON if fname == 'index.html' else ''}
@@ -272,7 +272,8 @@ home = f'''<section class="hero">
       {t("msg.k","p","kicker")}
       <blockquote class="msg-quote">
         <span class="msg-mark" aria-hidden="true">&ldquo;</span>
-        <p data-i18n="msg.q">{html.escape(T["msg.q"][0])}</p>
+        {t("msg.q1","p","msg-q1")}
+        {t("msg.q2","p","msg-q2")}
       </blockquote>
       <div class="msg-sign">
         <span class="msg-line" aria-hidden="true"></span>
