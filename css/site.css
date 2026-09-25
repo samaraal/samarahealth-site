@@ -147,13 +147,12 @@ html[lang="ta"] .lead{font-size:1.04rem}
 .float-card{position:absolute;display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
 .float-card strong{display:block;font:700 1.5rem/1 var(--font-head);color:var(--berry)}
 .float-card span{display:block;font-size:.85rem;color:var(--muted);line-height:1.3;margin-top:3px}
-.fc-a{left:0;bottom:64px}
-.fc-b{right:-8px;top:40px;max-width:250px}
-.fc-pin{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--blush);color:var(--berry);flex-shrink:0}
-.fc-pin .ic{width:20px;height:20px}
-.float-card .fc-small{font:800 .72rem/1.2 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--berry)}
-html[lang="ta"] .float-card .fc-small{letter-spacing:0;font-size:.8rem}
-.fc-b span:not(.fc-pin){color:var(--ink);font-weight:700;font-size:.92rem}
+.fc-a{left:0;top:84px}
+.fc-b{right:-22px;bottom:-4px;width:200px;margin:0;padding:8px;flex-direction:column;align-items:stretch;gap:0;border-radius:20px;transform:rotate(2deg)}
+.fc-b picture,.fc-b img{display:block;width:100%;border-radius:14px}
+.fc-b img{aspect-ratio:720/806;object-fit:cover}
+.fc-b figcaption{display:flex;align-items:center;gap:6px;padding:9px 4px 3px;font-weight:700;font-size:.84rem;line-height:1.3;color:var(--ink)}
+.fc-b figcaption .ic{width:16px;height:16px;color:var(--berry)}
 .fc-a .ic-badge{width:46px;height:46px;border-radius:14px;margin:0;background:var(--feather);color:#fff}
 .fc-a .ic-badge .ic{width:22px;height:22px}
 
@@ -389,7 +388,9 @@ html[lang="ta"] .site-footer h2{letter-spacing:.02em;font-size:.88rem}
 @media (max-width:600px){
   body{font-size:16px}
   .topbar .tb-mail{display:none}
-  .fc-b{display:none}
+  .fc-b{width:128px;right:-4px;bottom:0;padding:5px;border-radius:14px}
+  .fc-b img{border-radius:10px}
+  .fc-b figcaption{display:none}
   .sec-head .kicker::before,.sec-head .kicker::after{display:none}
   .tag-strip p{letter-spacing:.08em;font-size:.86rem;gap:10px}
   .arch{aspect-ratio:4/4}
@@ -404,7 +405,7 @@ html[lang="ta"] .site-footer h2{letter-spacing:.02em;font-size:.88rem}
   .brand img{width:110px}
   .card{padding:26px 22px}
   .hero-media{padding:0 0 20px 12px}
-  .fc-a{bottom:40px}
+  .fc-a{top:40px}
   .gallery{grid-template-columns:1fr 1fr;gap:10px}
   .gallery .g-video{grid-column:span 2;grid-row:span 1;aspect-ratio:16/9}
   .gallery figcaption{font-size:.78rem;padding:20px 10px 8px}

@@ -1,0 +1,12 @@
+SAMARAHEALTH.IN — HERO PHOTO UPDATE 
+
+Replace / add these 5 files at the same paths in the repository:
+  index.html
+  css/site.css
+  source/build.py
+  assets/photos/centre-building.jpg   (new)
+  assets/photos/centre-building.webp  (new)
+
+What changed: the "Our first centre / Now open in Mogappair" card on the home page
+is now a photo of the actual Samara building.
+If the old card still shows after uploading, refresh the page once (Ctrl+F5).

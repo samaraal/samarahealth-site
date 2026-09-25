@@ -242,10 +242,10 @@ home = f'''<section class="hero">
         <span class="ic-badge">{icon("heart")}</span>
         <div><strong>24×7</strong>{t("home.float.l")}</div>
       </div>
-      <div class="float-card fc-b">
-        <span class="fc-pin">{icon("pin")}</span>
-        <div><strong class="fc-small">{t("home.float.p")}</strong><span>{t("home.badge")}</span></div>
-      </div>
+      <figure class="float-card fc-b">
+        {pic("centre-building", "Samara Assisted Living building, 23A, Mogappair, Chennai", eager=True, w=720, h=806)}
+        <figcaption>{icon("pin")}<span>{t("home.badge")}</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
