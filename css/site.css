@@ -325,6 +325,15 @@ html[lang="ta"] .card .profile-close p{font-style:normal;font-family:var(--font-
 .profile-more{margin-top:24px;max-width:600px;grid-template-columns:1fr!important}
 @media (max-width:900px){.profile{grid-template-columns:1fr}.profile-photo{position:relative;top:0;width:min(240px,70%);justify-self:center}}
 
+.profile-rev{margin-top:28px;grid-template-columns:1fr 280px}
+.profile-rev .profile-photo{order:2}
+.profile-note{position:relative;padding-top:34px}
+.note-mark{position:absolute;left:-4px;top:-8px;font:700 5rem/1 var(--font-head);color:var(--flame);opacity:.35;pointer-events:none}
+.card .profile-note p{position:relative;margin:0 0 1.1em;font:italic 400 1.1rem/1.85 var(--font-head);color:var(--ink)}
+html[lang="ta"] .card .profile-note p{font-style:normal;font-family:var(--font-body);font-size:1.02rem}
+.card .profile-sign{display:flex;align-items:center;gap:14px;margin:8px 0 0;font:700 1.15rem/1.3 var(--font-head);color:var(--berry)}
+@media (max-width:900px){.profile-rev{grid-template-columns:1fr}.profile-rev .profile-photo{order:0}}
+
 /* ---------- band ---------- */
 .band{position:relative;overflow:hidden;background:var(--crimson);color:#fff;padding:clamp(56px,7vw,88px) 0}
 .band::before{content:"";position:absolute;right:-80px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),rgba(214,36,122,.18) 45%,transparent 70%)}

@@ -1,4 +1,4 @@
-SAMARAHEALTH.IN — v2.4 (final)
+SAMARAHEALTH.IN — v2.5
 
 Replace / add these files at the same paths in the repository:
   about.html
@@ -6,10 +6,10 @@ Replace / add these files at the same paths in the repository:
   js/i18n.js
   source/build.py
   source/content.py
-  assets/photos/dr-krishnan-chellammal-profile.jpg   (new — About page portrait)
-  assets/photos/dr-krishnan-chellammal-profile.webp  (new)
+  assets/photos/dr-maneesha-boominathan.jpg    (new)
+  assets/photos/dr-maneesha-boominathan.webp   (new)
   VERSION.txt
 
-What changed: About page › Leadership now shows Dr. Krishnan Chellammal's full profile with a
-different, professional rectangular portrait and the approved biography (English + Tamil).
-The home page photo is unchanged. Refresh once (Ctrl+F5) after uploading.
+What changed: About page › Leadership now includes Dr. Maneesha Boominathan's portrait
+and her "A Note from Our Director" (English + Tamil). Everything else is unchanged.
+Refresh once (Ctrl+F5) after uploading.

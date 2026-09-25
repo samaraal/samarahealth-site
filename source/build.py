@@ -455,9 +455,21 @@ about = page_head('about.k', 'about.h1', 'about.lead', 'nav.about') + f'''
         <div class="profile-close">{feather()}{t("bio1.p5","p")}</div>
       </div>
     </article>
-    <div class="cards two profile-more">
-      <article class="card person reveal d1"><span class="avatar" aria-hidden="true">MB</span><div>{t("about.p2","h3")}{t("about.dir","p")}</div></article>
-    </div>
+    <article class="card profile profile-rev reveal">
+      <figure class="profile-photo">
+        <div class="profile-frame">{pic("dr-maneesha-boominathan", "Dr. Maneesha Boominathan, Director, Samara Health Care LLP", w=800, h=1000)}</div>
+      </figure>
+      <div class="profile-body">
+        {t("about.p2","h3")}
+        {t("about.dir","p","profile-role")}
+        {t("bio2.k","p","profile-lead")}
+        <div class="profile-note">
+          <span class="note-mark" aria-hidden="true">&ldquo;</span>
+          {t("bio2.p1","p")}{t("bio2.p2","p")}
+        </div>
+        <p class="profile-sign"><span class="msg-line" aria-hidden="true"></span><span data-i18n="about.p2">{T["about.p2"][0]}</span></p>
+      </div>
+    </article>
   </div>
 </section>
 <section class="section">
