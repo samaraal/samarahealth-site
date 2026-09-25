@@ -282,8 +282,8 @@ html[lang="ta"] .quote p{font-size:1.3rem;line-height:1.6}
   radial-gradient(520px 360px at 12% 20%,rgba(236,92,159,.10),transparent 65%),
   linear-gradient(180deg,var(--blush),#fff)}
 .msg-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,88px);align-items:center;max-width:1060px}
-.msg-photo{position:relative;margin:0;justify-self:center;width:min(275px,100%)}
-.msg-frame{position:relative;border-radius:200px 200px 24px 24px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:11/20;background:var(--blush-2);border:6px solid #fff}
+.msg-photo{position:relative;margin:0;justify-self:center;width:min(310px,100%)}
+.msg-frame{position:relative;border-radius:200px 200px 24px 24px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:5/8;background:var(--blush-2);border:6px solid #fff}
 .msg-frame img{width:100%;height:100%;object-fit:cover;object-position:0% 50%}
 .msg-photo::before{content:"";position:absolute;inset:22px -22px -22px 22px;border-radius:200px 200px 24px 24px;border:1.5px solid var(--line-2);z-index:-1}
 .msg-photo .msg-feather{position:absolute;right:-18px;top:16px;width:52px;filter:drop-shadow(0 8px 14px rgba(214,36,122,.25))}
@@ -295,7 +295,7 @@ html[lang="ta"] .msg-quote p{font-style:normal;font-size:clamp(1.15rem,2vw,1.4re
 .msg-line{width:48px;height:2px;border-radius:2px;background:var(--feather);flex-shrink:0}
 .msg-sign strong{display:block;font:700 1.3rem/1.3 var(--font-head);color:var(--berry)}
 .msg-sign span:not(.msg-line){display:block;color:var(--muted);font-size:.95rem;margin-top:2px}
-@media (max-width:900px){.msg-grid{grid-template-columns:1fr;text-align:left}.msg-photo{width:min(230px,64%)}.msg-mark{top:-50px;font-size:6rem}}
+@media (max-width:900px){.msg-grid{grid-template-columns:1fr;text-align:left}.msg-photo{width:min(250px,70%)}.msg-mark{top:-50px;font-size:6rem}}
 
 /* ---------- band ---------- */
 .band{position:relative;overflow:hidden;background:var(--crimson);color:#fff;padding:clamp(56px,7vw,88px) 0}
