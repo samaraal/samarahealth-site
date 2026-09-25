@@ -199,8 +199,11 @@ home = f'''<section class="hero">
 
 <section class="section">
   <div class="wrap centre-grid">
-    <div class="centre-media">
-      <img src="assets/inauguration-invitation.jpg" alt="Invitation to the inauguration of Samara Assisted Living, Mogappair, Chennai, on 27 August 2026" width="1000" height="1500" loading="lazy">
+    <div class="centre-media centre-video">
+      <video controls playsinline preload="metadata" poster="assets/inauguration-invitation.jpg" aria-label="Samara Assisted Living, Mogappair — inauguration video">
+        <source src="assets/video/samara-opening.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
     </div>
     <div>
       {t("home.centre.k","p","kicker")}

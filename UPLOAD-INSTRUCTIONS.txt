@@ -1,0 +1,15 @@
+SAMARAHEALTH.IN — INAUGURATION VIDEO UPDATE
+
+Upload these three changed files to the same paths in the samarahealth-site repository:
+  index.html
+  css/site.css
+  source/build.py
+
+Then create this folder/path in the repository and upload your compressed MP4 there:
+  assets/video/samara-opening.mp4
+
+IMPORTANT: The filename must be exactly:
+  samara-opening.mp4
+
+The existing inauguration invitation image is intentionally retained and used as the video poster/preview image before playback.
+The video is 16:9, responsive, plays inline on mobile, and uses normal player controls. It does not autoplay.

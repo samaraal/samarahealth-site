@@ -112,6 +112,7 @@ html[lang="ta"] .tag-strip p{letter-spacing:.04em}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
 .centre-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:center}
 .centre-media img{border-radius:22px;box-shadow:var(--shadow-lg);border:1px solid var(--line);max-height:620px;width:auto;margin-inline:auto}
+.centre-video video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#000;border-radius:22px;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
 .ticks{list-style:none;padding:0;margin:18px 0}
 .ticks li{display:flex;gap:12px;align-items:flex-start;padding:7px 0}
 .ticks .ic{color:var(--magenta);margin-top:3px}
