@@ -1,17 +1,11 @@
-SAMARAHEALTH.IN — NEW PHOTOS UPDATE
+SAMARAHEALTH.IN — LOGO FEATHER RESTORED
 
-Replace / add these files at the same paths in the repository:
-  index.html
-  careers.html
+Replace these files at the same paths in the repository:
+  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
   css/site.css
-  js/i18n.js
   source/build.py
-  source/content.py
-  assets/photos/  — these 16 files (8 photos, each as .jpg and .webp):
-     centre-building      (home page: the whole building, from the photographer's set)
-     reception            (home page: reception with the lamps)
-     ribbon-cutting, lamp-lighting, inauguration-dais, honouring-guests  (home page gallery)
-     centre-signboard     (About + Contact pages: the lit Samara signboard)
-     care-team            (Careers page: new — the nursing and care team)
 
-If the old pictures still show after uploading, refresh once (Ctrl+F5).
+What changed: every feather decoration on the site is back to the original Samara
+logo feather (orange-to-magenta), exactly as in the logo. The magenta/pink theme stays.
+If you had already uploaded assets/samara-feather-pink.png, you can delete it — it is no longer used.
+Refresh once (Ctrl+F5) after uploading.

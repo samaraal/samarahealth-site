@@ -155,7 +155,7 @@ def page(fname, title_key, desc, body, active=None, og_image='assets/photos/cent
 <title>{html.escape(en_title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{canonical}">
-<meta name="theme-color" content="#9c0040">
+<meta name="theme-color" content="#b01264">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Samara Health Care">
