@@ -230,6 +230,11 @@ T = {
 T.update({
 "home.float.loc": ("Mogappair, Chennai – 37", "முகப்பேர், சென்னை – 37"),
 "car.team.cap": ("Our nursing and care team", "எங்கள் செவிலியர் மற்றும் பராமரிப்புக் குழு"),
+"msg.k": ("A message from our Director", "எங்கள் இயக்குநரின் செய்தி"),
+"msg.q": ("To heal is not merely to treat an illness; it is to accompany someone through recovery with patience, kindness, and unwavering respect.",
+          "குணப்படுத்துதல் என்பது நோய்க்குச் சிகிச்சை அளிப்பது மட்டுமல்ல; பொறுமையுடனும், கருணையுடனும், மாறாத மரியாதையுடனும் ஒருவரின் குணமடையும் பயணத்தில் உடன் நடப்பதே ஆகும்."),
+"msg.name": ("Dr. Krishnan Chellammal", "டாக்டர் கிருஷ்ணன் செல்லம்மாள்"),
+"msg.role": ("Director, Samara Health Care LLP", "இயக்குநர், சமாரா ஹெல்த் கேர் எல்எல்பி"),
 "top.care": ("24×7 nursing care", "24×7 செவிலியர் பராமரிப்பு"),
 "home.h1a": ("Care that", "குடும்பம் போல"),
 "home.h1b": ("feels like family.", "அக்கறையுடன் பராமரிப்பு."),

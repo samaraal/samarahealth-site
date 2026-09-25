@@ -262,6 +262,26 @@ home = f'''<section class="hero">
   </div>
 </section>
 
+<section class="section message">
+  <div class="wrap msg-grid">
+    <figure class="msg-photo reveal">
+      <div class="msg-frame">{pic("dr-krishnan-chellammal", "Dr. Krishnan Chellammal, Director, Samara Health Care LLP", w=800, h=1000)}</div>
+      {feather("msg-feather")}
+    </figure>
+    <div class="msg-body reveal d1">
+      {t("msg.k","p","kicker")}
+      <blockquote class="msg-quote">
+        <span class="msg-mark" aria-hidden="true">&ldquo;</span>
+        <p data-i18n="msg.q">{html.escape(T["msg.q"][0])}</p>
+      </blockquote>
+      <div class="msg-sign">
+        <span class="msg-line" aria-hidden="true"></span>
+        <div>{t("msg.name","strong")}{t("msg.role","span")}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap split">
     <figure class="photo reveal">

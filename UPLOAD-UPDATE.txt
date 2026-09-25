@@ -1,11 +1,14 @@
-SAMARAHEALTH.IN — LOGO FEATHER RESTORED
+SAMARAHEALTH.IN — DIRECTOR'S MESSAGE ON THE HOME PAGE
 
-Replace these files at the same paths in the repository:
-  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
+Replace / add these files at the same paths in the repository:
+  index.html
   css/site.css
+  js/i18n.js
   source/build.py
+  source/content.py
+  assets/photos/dr-krishnan-chellammal.jpg   (new)
+  assets/photos/dr-krishnan-chellammal.webp  (new)
 
-What changed: every feather decoration on the site is back to the original Samara
-logo feather (orange-to-magenta), exactly as in the logo. The magenta/pink theme stays.
-If you had already uploaded assets/samara-feather-pink.png, you can delete it — it is no longer used.
-Refresh once (Ctrl+F5) after uploading.
+What changed: a "A message from our Director" section with Dr. Krishnan Chellammal's
+photo and quote, placed just below the 24×7 / 3 / 4 / 1 figures on the home page
+(English and Tamil). Refresh once (Ctrl+F5) after uploading.
