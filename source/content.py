@@ -27,7 +27,7 @@ T = {
 "footer.privacy": ("Privacy Notice", "தனியுரிமை அறிவிப்பு"),
 "footer.rights": ("All rights reserved.", "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."),
 "footer.emergency": ("In a medical emergency, call 108.", "மருத்துவ அவசரநிலையில் 108-ஐ அழைக்கவும்."),
-"addr.line": ("Samara Assisted Living, Mogappair, Chennai – 600 037", "சமாரா அசிஸ்டட் லிவிங், முகப்பேர், சென்னை – 600 037"),
+"addr.line": ("Samara Assisted Living, Mogappair, Chennai – 600 037", "சமாரா அசிஸ்டட் லிவிங், முகப்பேர், சென்னை – 600 037"),
 
 # ---------- home ----------
 "home.title": ("Samara Health Care — Care that feels like family", "சமாரா ஹெல்த் கேர் — குடும்பம் போன்ற பராமரிப்பு"),
@@ -228,7 +228,7 @@ T = {
 
 # ---------- 2026-09 redesign: new and updated text ----------
 T.update({
-"home.float.loc": ("Mogappair, Chennai – 37", "முகப்பேர், சென்னை – 37"),
+"home.float.loc": ("Mogappair, Chennai – 37", "முகப்பேர், சென்னை – 37"),
 "car.team.cap": ("Our nursing and care team", "எங்கள் செவிலியர் மற்றும் பராமரிப்புக் குழு"),
 "msg.k": ("A message from our Director", "எங்கள் இயக்குநரின் செய்தி"),
 "msg.q": ("To heal is not merely to treat an illness; it is to accompany someone through recovery with patience, kindness, and unwavering respect.",

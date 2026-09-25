@@ -1,15 +1,13 @@
-SAMARAHEALTH.IN — v2.5
+SAMARAHEALTH.IN — v2.6
 
-Replace / add these files at the same paths in the repository:
-  about.html
+Replace these files at the same paths in the repository:
+  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
   css/site.css
   js/i18n.js
-  source/build.py
   source/content.py
-  assets/photos/dr-maneesha-boominathan.jpg    (new)
-  assets/photos/dr-maneesha-boominathan.webp   (new)
   VERSION.txt
 
-What changed: About page › Leadership now includes Dr. Maneesha Boominathan's portrait
-and her "A Note from Our Director" (English + Tamil). Everything else is unchanged.
+What changed: "Chennai – 37" (and "Chennai – 600 037" in the address) never breaks across lines;
+the home-page "Our first centre" card now shows "Mogappair, Chennai – 37" on one line.
+All 7 pages are included only because the address in the top bar/footer changed.
 Refresh once (Ctrl+F5) after uploading.
