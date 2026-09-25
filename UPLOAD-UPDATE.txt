@@ -1,17 +1,13 @@
-SAMARAHEALTH.IN — v2.1  (restore point: "Director's message" version)
-
-This is exactly the "Director's message" version you have live (single quote,
-original photo, same layout) — with ONE change: the Tamil quote now ends
-"…பயணத்தில் துணை இருப்பதே ஆகும்."
+SAMARAHEALTH.IN — v2.4
 
 Replace these files at the same paths in the repository:
-  index.html
+  about.html
   css/site.css
   js/i18n.js
   source/build.py
   source/content.py
-  assets/photos/dr-krishnan-chellammal.jpg
-  assets/photos/dr-krishnan-chellammal.webp
-  VERSION.txt   (version history)
+  VERSION.txt
 
-Do NOT upload the later "director-message refined" zip. Refresh once (Ctrl+F5) after uploading.
+What changed: About page › Leadership now shows Dr. Krishnan Chellammal's full profile
+(photo and polished paragraph biography) in English and Tamil. Dr. Maneesha Boominathan's
+card stays as it is until her profile is ready. Refresh once (Ctrl+F5) after uploading.

@@ -440,8 +440,23 @@ about = page_head('about.k', 'about.h1', 'about.lead', 'nav.about') + f'''
 <section class="section tint">
   <div class="wrap">
     <div class="sec-head reveal">{t("about.lead.h","h2")}{t("about.lead.p","p")}</div>
-    <div class="cards two">
-      <article class="card person reveal"><span class="avatar" aria-hidden="true">CB</span><div>{t("about.p1","h3")}{t("about.dir","p")}</div></article>
+    <article class="card profile reveal">
+      <figure class="profile-photo">
+        <div class="profile-frame">{pic("dr-krishnan-chellammal", "Dr. Krishnan Chellammal, Director, Samara Health Care LLP", w=800, h=1000)}</div>
+        {feather("profile-feather")}
+      </figure>
+      <div class="profile-body">
+        {t("about.p1","h3")}
+        {t("about.dir","p","profile-role")}
+        {t("bio1.aka","p","profile-aka")}
+        {t("bio1.lead","p","profile-lead")}
+        <div class="profile-text">
+          {t("bio1.p1","p")}{t("bio1.p2","p")}{t("bio1.p3","p")}{t("bio1.p4","p")}
+        </div>
+        <div class="profile-close">{feather()}{t("bio1.p5","p")}</div>
+      </div>
+    </article>
+    <div class="cards two profile-more">
       <article class="card person reveal d1"><span class="avatar" aria-hidden="true">MB</span><div>{t("about.p2","h3")}{t("about.dir","p")}</div></article>
     </div>
   </div>
