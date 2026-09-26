@@ -1,20 +1,15 @@
 SAMARAHEALTH.IN — v2.7
 
 Replace / add these files at the same paths in the repository:
-  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
+  index.html
   css/site.css
   js/i18n.js
-  source/content.py  source/build.py
-  assets/photos/reception.jpg          assets/photos/reception.webp          (replaced)
-  assets/photos/centre-signboard.jpg   assets/photos/centre-signboard.webp   (replaced)
-  assets/photos/care-room-single.jpg   assets/photos/care-room-single.webp   (NEW)
-  assets/photos/care-room-triple.jpg   assets/photos/care-room-triple.webp   (NEW)
-  VERSION.txt  UPLOAD-UPDATE.txt
+  source/build.py
+  source/content.py
+  assets/photos/care-team-desk.jpg    (new)
+  assets/photos/care-team-desk.webp   (new)
+  VERSION.txt
 
-What changed:
-  1. Tamil name சமாரா is now சமரா on every page (Tamil view).
-  2. Footer of every page: "Developed and Maintained by: AppGeo Private Limited (appgeo.in). Mobile: 9176735577".
-  3. New photos: Reception (home page), Signboard (About + Contact pages),
-     Triple room (home page "Rooms designed for rest…"), Single room (Our Care page "Comfortable living").
-Optional: assets/photos/care-room.jpg / .webp are no longer used and can be deleted.
+What changed: home page — new "Our care team / Highly qualified, skilled and dedicated" section
+with the front-desk team photo, placed after "Safe. Respectful. Reassuring." (English + Tamil).
 Refresh once (Ctrl+F5) after uploading.

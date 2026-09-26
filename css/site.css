@@ -334,6 +334,14 @@ html[lang="ta"] .card .profile-note p{font-style:normal;font-family:var(--font-b
 .card .profile-sign{display:flex;align-items:center;gap:14px;margin:8px 0 0;font:700 1.15rem/1.3 var(--font-head);color:var(--berry)}
 @media (max-width:900px){.profile-rev{grid-template-columns:1fr}.profile-rev .profile-photo{order:0}}
 
+/* care team photo */
+.team-photo{position:relative;margin:0 auto;max-width:1080px}
+.team-photo img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow-lg)}
+.team-photo::before{content:"";position:absolute;inset:20px -20px -20px 20px;border-radius:var(--radius);background:var(--blush-2);z-index:-1}
+.team-photo figcaption{position:absolute;left:22px;bottom:22px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.95);border-radius:999px;padding:9px 18px;font-size:.9rem;font-weight:700;color:var(--berry);box-shadow:var(--shadow)}
+.team-photo figcaption .ic{width:18px;height:18px}
+@media (max-width:600px){.team-photo::before{inset:12px -10px -12px 12px}.team-photo figcaption{display:none}}
+
 /* ---------- band ---------- */
 .band{position:relative;overflow:hidden;background:var(--crimson);color:#fff;padding:clamp(56px,7vw,88px) 0}
 .band::before{content:"";position:absolute;right:-80px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),rgba(214,36,122,.18) 45%,transparent 70%)}
@@ -402,11 +410,6 @@ html[lang="ta"] .site-footer h2{letter-spacing:.02em;font-size:.88rem}
 .foot-tag{font:italic 600 1.05rem/1.4 var(--font-head);color:#f7a6c9;letter-spacing:.02em}
 .foot-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.1);margin-top:48px;padding:22px 0 96px;font-size:.87rem;color:rgba(255,255,255,.6)}
 .foot-base p{margin:0}
-.foot-base{padding-bottom:18px}
-.foot-credit{border-top:1px solid rgba(255,255,255,.08);padding:14px 0 96px;font-size:.82rem;color:rgba(255,255,255,.55);text-align:center}
-.foot-credit p{margin:0}
-.foot-credit a{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px}
-.foot-credit a:hover{color:#fff}
 
 /* ---------- floating quick contact ---------- */
 .float-cta{position:fixed;right:18px;bottom:max(18px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:12px;z-index:40}

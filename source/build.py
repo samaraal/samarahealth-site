@@ -4,7 +4,7 @@ import json, os, html
 from content import T
 
 OUT = __import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), '..')
-VERSION = '2.7.0'
+VERSION = '2.0.0'
 SITE = 'https://samarahealth.in'
 PHONE1, PHONE1_T = '+91 99767 35577', '+919976735577'
 PHONE2, PHONE2_T = '+91 73959 61616', '+917395961616'
@@ -137,9 +137,6 @@ def footer():
   <div class="wrap foot-base">
     <span>© <span id="year">2026</span> Samara Health Care LLP. {t("footer.rights")}</span>
     {t("footer.emergency")}
-  </div>
-  <div class="wrap foot-credit">
-    <p>Developed and Maintained by: <a href="https://appgeo.in/" rel="noopener">AppGeo Private Limited (appgeo.in)</a>. Mobile: <a href="tel:+919176735577">9176735577</a></p>
   </div>
 </footer>
 <div class="float-cta" aria-label="Quick contact">
@@ -288,7 +285,7 @@ home = f'''<section class="hero">
 <section class="section">
   <div class="wrap split">
     <figure class="photo reveal">
-      {pic("reception", "Reception and welcome area at Samara Assisted Living", w=1600, h=1200)}
+      {pic("reception", "Reception and welcome area at Samara Assisted Living")}
       {feather("feather-mark")}
       <figcaption>{t("home.centre.cap")}</figcaption>
     </figure>
@@ -321,6 +318,16 @@ home = f'''<section class="hero">
   </div>
 </section>
 
+<section class="section team">
+  <div class="wrap">
+    <div class="sec-head reveal">{t("team.k","p","kicker")}{t("team.h","h2")}{t("team.p","p")}</div>
+    <figure class="team-photo reveal">
+      {pic("care-team-desk", "The Samara front desk and nursing team at the Mogappair centre", w=1600, h=900)}
+      <figcaption>{icon("heart")}{t("team.cap")}</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap split">
     <div class="reveal">
@@ -337,7 +344,7 @@ home = f'''<section class="hero">
       </div>
     </div>
     <figure class="photo alt reveal d1">
-      {pic("care-room-triple", "A triple-sharing care room at Samara with adjustable beds and privacy curtains", w=1600, h=1200)}
+      {pic("care-room", "A care room at Samara with adjustable beds and privacy curtains")}
       <figcaption>{t("home.living.cap")}</figcaption>
     </figure>
   </div>
@@ -412,7 +419,7 @@ about = page_head('about.k', 'about.h1', 'about.lead', 'nav.about') + f'''
 <section class="section">
   <div class="wrap split">
     <figure class="photo reveal">
-      {pic("centre-signboard", "The Samara Assisted Living signboard at our Mogappair centre", w=1600, h=1066)}
+      {pic("centre-signboard", "The Samara Assisted Living signboard at our Mogappair centre")}
       {feather("feather-mark")}
       <figcaption>{t("about.photo.cap")}</figcaption>
     </figure>
@@ -511,7 +518,7 @@ services = page_head('svc.k', 'svc.h1', 'svc.lead', 'nav.services') + f'''
       </ul>
     </div>
     <article class="card card-media reveal d1">
-      {pic("care-room-single", "A single care room at Samara with an adjustable bed and nurse-call panel", w=1600, h=1200)}
+      {pic("care-room", "A care room at Samara with adjustable beds")}
       <div class="card-body">
         {t("svc.rooms.h","h2")}
         {t("svc.rooms.p","p")}
@@ -539,7 +546,7 @@ services = page_head('svc.k', 'svc.h1', 'svc.lead', 'nav.services') + f'''
   </div>
 </section>
 {cta_band()}'''
-page('services.html', 'svc.title', 'Our care at Samara Assisted Living: 24x7 nursing, post-hospital recovery, medication safety, physiotherapy, nutrition, daily living support, respite stays, admission steps and FAQs.', services, og_image='assets/photos/care-room-triple.jpg')
+page('services.html', 'svc.title', 'Our care at Samara Assisted Living: 24x7 nursing, post-hospital recovery, medication safety, physiotherapy, nutrition, daily living support, respite stays, admission steps and FAQs.', services, og_image='assets/photos/care-room.jpg')
 
 # ---------------- CAREERS ----------------
 careers = page_head('car.k', 'car.h1', 'car.lead', 'nav.careers') + f'''
@@ -635,7 +642,7 @@ contact = page_head('con.k', 'con.h1', 'con.lead', 'nav.contact') + f'''
         </dl>
         {t("con.hours","p","muted")}
       </div>
-      <figure class="contact-photo" style="margin:0">{pic("centre-signboard", "Samara Assisted Living signboard, Mogappair", w=1600, h=1066)}</figure>
+      <figure class="contact-photo" style="margin:0">{pic("centre-signboard", "Samara Assisted Living signboard, Mogappair")}</figure>
       <div class="card emergency">{icon("alert")}{t("footer.emergency","p")}</div>
     </aside>
   </div>
