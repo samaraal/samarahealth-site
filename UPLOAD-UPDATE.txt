@@ -1,15 +1,18 @@
-SAMARAHEALTH.IN — v2.7
+SAMARAHEALTH.IN — v2.8  (combined — upload ALL of these)
 
 Replace / add these files at the same paths in the repository:
-  index.html
+  index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
   css/site.css
   js/i18n.js
-  source/build.py
-  source/content.py
-  assets/photos/care-team-desk.jpg    (new)
-  assets/photos/care-team-desk.webp   (new)
+  source/build.py  source/content.py
+  assets/photos/reception.jpg / .webp
+  assets/photos/centre-signboard.jpg / .webp
+  assets/photos/care-room-single.jpg / .webp
+  assets/photos/care-room-triple.jpg / .webp
+  assets/photos/care-team-desk.jpg / .webp
   VERSION.txt
 
-What changed: home page — new "Our care team / Highly qualified, skilled and dedicated" section
-with the front-desk team photo, placed after "Safe. Respectful. Reassuring." (English + Tamil).
+Why: two separate "v2.7" updates were made; uploading one after the other replaced the
+newer photos with older ones. This v2.8 combines both, so everything is current.
+Optional: assets/photos/care-room.jpg / .webp are no longer used and can be deleted.
 Refresh once (Ctrl+F5) after uploading.

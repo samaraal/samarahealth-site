@@ -1,6 +1,7 @@
 samarahealth.in — version history
 ---------------------------------
-v2.7  (26 Sep 2026)  Home page: new 'Our care team — Highly qualified, skilled and dedicated' section with the front-desk team photo (16:9), English + Tamil.
+v2.8  (26 Sep 2026)  Merges both v2.7 updates: keeps the new reception, signboard and room photos, சமரா spelling and AppGeo footer credit, and adds the 'Our care team' section (front-desk team photo).
+v2.7  (26 Sep 2026)  Tamil brand name சமாரா → சமரா everywhere; footer credit 'Developed and Maintained by: AppGeo Private Limited'; new Reception, Signboard and Room photos (single + triple room).
 v2.6  (26 Sep 2026)  'Chennai – 37' (and 'Chennai – 600 037') always kept together on one line; home-page location card widened.
 v2.5  (26 Sep 2026)  About page › Leadership: Dr. Maneesha Boominathan — portrait and 'A Note from Our Director' (English + Tamil); Tamil name spelling மணீஷா.
 v2.4  (26 Sep 2026)  About page › Leadership: full profile of Dr. Krishnan Chellammal — new professional portrait and polished paragraph biography (English + Tamil).
