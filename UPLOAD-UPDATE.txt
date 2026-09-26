@@ -1,13 +1,20 @@
-SAMARAHEALTH.IN — v2.6
+SAMARAHEALTH.IN — v2.7
 
-Replace these files at the same paths in the repository:
+Replace / add these files at the same paths in the repository:
   index.html  about.html  services.html  careers.html  contact.html  privacy.html  404.html
   css/site.css
   js/i18n.js
-  source/content.py
-  VERSION.txt
+  source/content.py  source/build.py
+  assets/photos/reception.jpg          assets/photos/reception.webp          (replaced)
+  assets/photos/centre-signboard.jpg   assets/photos/centre-signboard.webp   (replaced)
+  assets/photos/care-room-single.jpg   assets/photos/care-room-single.webp   (NEW)
+  assets/photos/care-room-triple.jpg   assets/photos/care-room-triple.webp   (NEW)
+  VERSION.txt  UPLOAD-UPDATE.txt
 
-What changed: "Chennai – 37" (and "Chennai – 600 037" in the address) never breaks across lines;
-the home-page "Our first centre" card now shows "Mogappair, Chennai – 37" on one line.
-All 7 pages are included only because the address in the top bar/footer changed.
+What changed:
+  1. Tamil name சமாரா is now சமரா on every page (Tamil view).
+  2. Footer of every page: "Developed and Maintained by: AppGeo Private Limited (appgeo.in). Mobile: 9176735577".
+  3. New photos: Reception (home page), Signboard (About + Contact pages),
+     Triple room (home page "Rooms designed for rest…"), Single room (Our Care page "Comfortable living").
+Optional: assets/photos/care-room.jpg / .webp are no longer used and can be deleted.
 Refresh once (Ctrl+F5) after uploading.

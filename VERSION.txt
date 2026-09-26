@@ -1,5 +1,6 @@
 samarahealth.in — version history
 ---------------------------------
+v2.7  (26 Sep 2026)  Tamil brand name சமாரா → சமரா everywhere; footer credit 'Developed and Maintained by: AppGeo Private Limited'; new Reception, Signboard and Room photos (single + triple room).
 v2.6  (26 Sep 2026)  'Chennai – 37' (and 'Chennai – 600 037') always kept together on one line; home-page location card widened.
 v2.5  (26 Sep 2026)  About page › Leadership: Dr. Maneesha Boominathan — portrait and 'A Note from Our Director' (English + Tamil); Tamil name spelling மணீஷா.
 v2.4  (26 Sep 2026)  About page › Leadership: full profile of Dr. Krishnan Chellammal — new professional portrait and polished paragraph biography (English + Tamil).
