@@ -4,7 +4,7 @@ import json, os, html
 from content import T
 
 OUT = __import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), '..')
-VERSION = '2.8.1'
+VERSION = '2.9.0'
 SITE = 'https://samarahealth.in'
 PHONE1, PHONE1_T = '+91 99767 35577', '+919976735577'
 PHONE2, PHONE2_T = '+91 73959 61616', '+917395961616'
@@ -188,6 +188,7 @@ def page(fname, title_key, desc, body, active=None, og_image='assets/photos/cent
 <script src="js/i18n.js?v={VERSION}"></script>
 <script src="js/site.js?v={VERSION}"></script>
 <script src="js/samara-ai.js?v={VERSION}"></script>
+<script src="js/samara-speech.js?v={VERSION}"></script>
 </body>
 </html>
 '''
