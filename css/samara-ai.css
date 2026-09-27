@@ -4,3 +4,19 @@
 @media print{.sai-launch,.sai-panel{display:none!important}}
 
 .sai-progress{display:flex;align-items:center;gap:10px;padding:13px 15px;background:#f5e9ef;color:#7d143f;border-top:1px solid #ead9e1;font-size:14px;font-weight:700;flex-shrink:0}.sai-progress[hidden]{display:none}.sai-progress-dots{display:flex;gap:4px;flex-shrink:0}.sai-progress-dots i{width:6px;height:6px;border-radius:50%;background:#9c0040;animation:saiThinking 1.2s infinite}.sai-progress-dots i:nth-child(2){animation-delay:.2s}.sai-progress-dots i:nth-child(3){animation-delay:.4s}.sai-map-link{display:block;margin:8px 0 14px;padding:12px;border:1px solid #dcbac9;border-radius:12px;background:#fff;color:#9c0040;font-weight:700;text-decoration:underline}.sai-compose button:disabled,.sai-quick button:disabled,.sai-lang:disabled{opacity:.5;cursor:wait}@keyframes saiThinking{0%,80%,100%{opacity:.35;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}@media(prefers-reduced-motion:reduce){.sai-progress-dots i,.sai-mic.listening{animation:none}}
+
+/* Logo-inspired magenta and rose gradients, scoped to the assistant. */
+.sai-panel{border-color:#f2b9dc;box-shadow:0 24px 64px rgba(164,13,105,.22);background:linear-gradient(155deg,#fff7fc,#fff)}
+.sai-head{background:linear-gradient(120deg,#ad0879 0%,#ce238e 55%,#ea69ae 100%)}
+.sai-launch,.sai-user,.sai-send,.sai-lang.active{background:linear-gradient(135deg,#ac0876,#d92a91);color:#fff}
+.sai-msgs{background:radial-gradient(ellipse at top right,rgba(250,206,231,.6),transparent 70%),linear-gradient(155deg,#fffafd,#fff2f9)}
+.sai-bot{background:linear-gradient(125deg,#fbe0f0,#fff0f8);color:#591342;border:1px solid #f3c5e1}
+.sai-user{box-shadow:0 4px 12px rgba(185,18,118,.12)}
+.sai-panel .sai-langs,.sai-panel .sai-speech,.sai-panel .sai-quick,.sai-panel .sai-compose,.sai-panel .sai-note{background:linear-gradient(105deg,#fff8fc,#fff);border-color:#f4d5e8}
+.sai-panel .sai-note,.sai-panel .sai-speech small{color:#76516c}
+.sai-panel .sai-quick button,.sai-panel .sai-speech button,.sai-panel .sai-listen,.sai-panel .sai-map-link{background:linear-gradient(135deg,#fff,#fff0f8);border-color:#eeb3d5;color:#a30b70}
+.sai-panel .sai-lang{border-color:#edc2dd}.sai-panel .sai-lang.active{border-color:#bc147e}
+.sai-panel .sai-compose input{border-color:#e7b5d4;background:#fffafd;color:#591342}
+.sai-panel .sai-compose input:focus{outline:2px solid #df56a6;outline-offset:2px}
+.sai-mic{background:linear-gradient(135deg,#f9d3e9,#fff0f9);color:#ad0879}.sai-mic.listening{background:linear-gradient(135deg,#ac0876,#d92a91);color:#fff}
+.sai-progress{background:linear-gradient(100deg,#f9d4eb,#fff0f9);border-color:#efbcdb;color:#911363}.sai-progress-dots i{background:#c51b87}
