@@ -22,3 +22,5 @@
 .sai-progress{background:linear-gradient(100deg,#f9d4eb,#fff0f9);border-color:#efbcdb;color:#911363}.sai-progress-dots i{background:#c51b87}
 
 .sai-awake{padding:4px 12px;background:#fff5fb;color:#8d1a63;text-align:center;font-size:11px;flex-shrink:0}.sai-awake[hidden]{display:none}
+
+.sai-conversation{padding:8px 12px;background:linear-gradient(110deg,#fce1f1,#fff8fc);border-bottom:1px solid #f0c4de;flex-shrink:0}.sai-conversation button{width:100%;padding:10px 12px;border:1px solid #d63d99;border-radius:12px;color:#941362;background:linear-gradient(110deg,#fff5fc,#f8cfe7);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}.sai-conversation button[aria-pressed="true"]{background:linear-gradient(110deg,#aa076e,#de3196);color:white}.sai-conversation button:disabled{opacity:.5;cursor:default}.sai-conversation button:focus-visible{outline:2px solid #941362;outline-offset:2px}.sai-conversation small{display:block;text-align:center;font-size:11px;line-height:1.4;color:#76516c;margin-top:5px}
