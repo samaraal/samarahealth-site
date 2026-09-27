@@ -19,6 +19,7 @@ function unlock(){
  }catch(e){}
 }
 function stop(){
+ if(window.SamaraWake)window.SamaraWake.release('speech');
  serial++;if(pending){pending.abort();pending=null}
  sources.forEach(function(s){s.onended=null;try{s.stop();s.disconnect()}catch(e){}});sources=[];nextTime=0;downloadDone=false;
  if(player){player.onended=null;player.onerror=null;player.pause()}
@@ -56,7 +57,7 @@ async function streamPCM(response,reply,id){
  }catch(e){await reader.cancel().catch(function(){});throw e}finally{reader.releaseLock()}
 }
 function playReply(reply){
- stop();if(!available())return;var id=serial;
+ stop();if(!available())return;if(window.SamaraWake)window.SamaraWake.hold('speech');var id=serial;
  activeButton=reply.button;state='loading';reply.button.textContent='■ Stop';status('Preparing voice…');render();
  function failed(e){if(id!==serial)return;stop();status(e&&e.name==='NotAllowedError'?'Tap Listen once to enable voice on this device.':'Voice unavailable. Tap Listen to retry; your text reply is ready.')}
  function start(url){
