@@ -26,6 +26,8 @@ function stop(){
  if(activeButton){activeButton.textContent='▶ Listen';activeButton=null}
  state='idle';status('AI-generated voice');render();
 }
+function completed(){stop();if(window.SamaraConversation)window.SamaraConversation.speechEnded()}
+function endConversation(){if(window.SamaraConversation)window.SamaraConversation.end()}
 function release(){if(cached&&cached.url)URL.revokeObjectURL(cached.url);cached=null}
 function available(){return el('sai-panel')&&el('sai-panel').classList.contains('open')}
 function schedule(bytes,id){
@@ -34,7 +36,7 @@ function schedule(bytes,id){
  var count=bytes.length/2,buffer=context.createBuffer(1,count,24000),samples=buffer.getChannelData(0),view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
  for(var i=0;i<count;i++)samples[i]=view.getInt16(i*2,true)/32768;
  var source=context.createBufferSource();source.buffer=buffer;source.connect(context.destination);sources.push(source);
- source.onended=function(){source.disconnect();sources=sources.filter(function(s){return s!==source});if(id===serial&&downloadDone&&!sources.length)stop()};
+ source.onended=function(){source.disconnect();sources=sources.filter(function(s){return s!==source});if(id===serial&&downloadDone&&!sources.length)completed()};
  var when=Math.max(context.currentTime+0.08,nextTime);source.start(when);nextTime=when+buffer.duration;
  state='playing';status('Speaking · AI-generated voice');render();
 }
@@ -53,16 +55,16 @@ async function streamPCM(response,reply,id){
   if(id!==serial)return;
   var pcm=new Uint8Array(total),offset=0;parts.forEach(function(p){pcm.set(p,offset);offset+=p.length});
   release();cached={text:reply.text,language:reply.language,pcm:pcm};downloadDone=true;
-  if(!sources.length)stop();
+  if(!sources.length)completed();
  }catch(e){await reader.cancel().catch(function(){});throw e}finally{reader.releaseLock()}
 }
 function playReply(reply){
  stop();if(!available())return;if(window.SamaraWake)window.SamaraWake.hold('speech');var id=serial;
  activeButton=reply.button;state='loading';reply.button.textContent='■ Stop';status('Preparing voice…');render();
- function failed(e){if(id!==serial)return;stop();status(e&&e.name==='NotAllowedError'?'Tap Listen once to enable voice on this device.':'Voice unavailable. Tap Listen to retry; your text reply is ready.')}
+ function failed(e){if(id!==serial)return;stop();if(window.SamaraConversation)window.SamaraConversation.speechFailed();status(e&&e.name==='NotAllowedError'?'Tap Listen once to enable voice on this device.':'Voice unavailable. Tap Listen to retry; your text reply is ready.')}
  function start(url){
   if(id!==serial||!available())return;
-  if(!player)player=new Audio();player.src=url;player.onended=function(){if(id===serial)stop()};player.onerror=failed;
+  if(!player)player=new Audio();player.src=url;player.onended=function(){if(id===serial)completed()};player.onerror=failed;
   Promise.resolve(player.play()).then(function(){if(id===serial){state='playing';status('Speaking · AI-generated voice');render()}}).catch(failed);
  }
  if(cached&&cached.text===reply.text&&cached.language===reply.language){try{if(cached.pcm){schedule(cached.pcm,id);downloadDone=true}else start(cached.url)}catch(e){failed(e)}return}
@@ -84,7 +86,7 @@ function reply(text,language){
  if(!bubble)return;
  var button=document.createElement('button');button.type='button';button.className='sai-listen';button.textContent='▶ Listen';button.setAttribute('aria-label','Listen to this reply');
  var item={text:String(text).replace(/https?:\/\/[^\s)]+/g,'the Google Maps link shown in chat'),language:language||'en',button:button};
- button.onclick=function(){unlock();if(activeButton===button&&state!=='idle')stop();else playReply(item)};
+ button.onclick=function(){endConversation();unlock();if(activeButton===button&&state!=='idle')stop();else playReply(item)};
  bubble.appendChild(button);last=item;
  if(enabled&&available())playReply(item);
  messages.scrollTop=messages.scrollHeight;
@@ -94,16 +96,16 @@ function init(){
  var style=document.createElement('style');style.textContent='.sai-speech{padding:6px 10px;border-bottom:1px solid #eee;flex-shrink:0}.sai-speech-row{display:flex;gap:7px;align-items:center}.sai-speech button,.sai-listen{border:1px solid #dcbac9;border-radius:999px;background:#fff;color:#7d143f;padding:5px 10px;font-family:inherit;font-size:12px;font-weight:600;line-height:1.3;cursor:pointer}.sai-speech button:disabled{opacity:.45;cursor:default}.sai-speech small{display:block;color:#76636c;font-size:11px;margin-top:4px}.sai-listen{display:block;margin-top:8px}.sai-enquiry-link{display:block;margin:8px 0;color:#9c0040}.sai-speech button:focus-visible,.sai-listen:focus-visible{outline:2px solid #9c0040;outline-offset:2px}';document.head.appendChild(style);
  var controls=document.createElement('div');controls.className='sai-speech';controls.innerHTML='<div class="sai-speech-row"><button type="button" id="sai-sound-toggle" aria-label="Spoken replies" aria-pressed="true"></button><button type="button" id="sai-sound-stop" disabled>■ Stop voice</button></div><small id="sai-speech-status" role="status">AI-generated voice</small>';
  panel.insertBefore(controls,el('sai-msgs'));
- el('sai-sound-toggle').onclick=function(){enabled=!enabled;try{localStorage.setItem('samara-spoken-replies',enabled?'on':'off')}catch(e){}if(!enabled)stop();else{unlock();if(last)playReply(last)}render()};
- el('sai-sound-stop').onclick=stop;
+ el('sai-sound-toggle').onclick=function(){endConversation();enabled=!enabled;try{localStorage.setItem('samara-spoken-replies',enabled?'on':'off')}catch(e){}if(!enabled)stop();else{unlock();if(last)playReply(last)}render()};
+ el('sai-sound-stop').onclick=function(){endConversation();stop()};
  panel.addEventListener('click',unlock,true);
  panel.addEventListener('submit',unlock,true);
  panel.addEventListener('keydown',function(e){if(e.key==='Enter')unlock()},true);
  el('sai-launch').addEventListener('click',unlock,true);
- panel.addEventListener('play',function(e){if(e.target.tagName==='VIDEO')stop()},true);
+ panel.addEventListener('play',function(e){if(e.target.tagName==='VIDEO'){endConversation();stop()}},true);
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
  window.addEventListener('pagehide',function(){stop();release()});render();
 }
-window.SamaraSpeech={reply:reply,stop:stop,unlock:unlock};
+window.SamaraSpeech={reply:reply,stop:stop,unlock:unlock,active:function(){return state!=='idle'},enable:function(){enabled=true;try{localStorage.setItem('samara-spoken-replies','on')}catch(e){}unlock();render()}};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
