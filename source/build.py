@@ -4,7 +4,7 @@ import json, os, html
 from content import T
 
 OUT = __import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), '..')
-VERSION = '2.9.0'
+VERSION = '2.9.1'
 SITE = 'https://samarahealth.in'
 PHONE1, PHONE1_T = '+91 99767 35577', '+919976735577'
 PHONE2, PHONE2_T = '+91 73959 61616', '+917395961616'
@@ -13,7 +13,7 @@ SAL = 'https://samaraassistedliving.com/'
 LINKS = {
     'careers': SAL + 'careers.html', 'rooms': SAL + 'rooms.html', 'packages': SAL + 'packages.html',
     'family': 'https://family.samaraassistedliving.com', 'staff': 'https://app.samaraassistedliving.com/',
-    'maps': 'https://www.google.com/maps/search/?api=1&query=Samara+Assisted+Living+Mogappair+Chennai',
+    'maps': 'https://maps.app.goo.gl/NwdW9T6WFnosJg8V7?g_st=iw',
 }
 
 def t(key, tag='span', cls='', extra=''):
@@ -130,7 +130,7 @@ def footer():
         <li><a href="tel:{PHONE1_T}">{icon("phone")}{PHONE1}</a></li>
         <li><a href="tel:{PHONE2_T}">{icon("phone")}{PHONE2}</a></li>
         <li><a href="https://wa.me/{WA}" rel="noopener">{icon("chat")}WhatsApp</a></li>
-        <li>{icon("pin")}{t("addr.line")}</li>
+        <li>{icon("pin")}{t("addr.full", extra=' style="white-space:pre-line"')}</li>
       </ul>
     </div>
   </div>
@@ -199,7 +199,7 @@ LDJSON = '<script type="application/ld+json">' + json.dumps({
     "@context": "https://schema.org", "@type": "MedicalOrganization",
     "name": "Samara Health Care LLP", "url": SITE + "/", "logo": SITE + "/assets/samara-assisted-living-logo.png",
     "telephone": PHONE2_T, "slogan": "Compassion • Comfort • Dignity",
-    "address": {"@type": "PostalAddress", "streetAddress": "Samara Assisted Living, Mogappair",
+    "address": {"@type": "PostalAddress", "streetAddress": "RBK VILLA, No. 23-A, Reddipalayam Road, Jeswant Nagar Phase 1, Jaswant Nagar, Mogappair West",
                 "addressLocality": "Chennai", "postalCode": "600037", "addressRegion": "Tamil Nadu", "addressCountry": "IN"},
     "sameAs": [SAL]}, ensure_ascii=False) + '</script>'
 
@@ -243,7 +243,7 @@ home = f'''<section class="hero">
       <p class="hero-note"><span class="dot" aria-hidden="true"></span>{t("home.note")}</p>
     </div>
     <div class="hero-media">
-      <div class="arch">{pic("centre-building", "The Samara Assisted Living building at 23A, Mogappair, Chennai", eager=True, w=1050, h=1400)}</div>
+      <div class="arch">{pic("centre-building", "The Samara Assisted Living building at 23A, Mogappair West, Chennai", eager=True, w=1050, h=1400)}</div>
       <div class="float-card fc-a">
         <span class="ic-badge">{icon("heart")}</span>
         <div><strong>24×7</strong>{t("home.float.l")}</div>
@@ -299,6 +299,8 @@ home = f'''<section class="hero">
       {t("home.centre.k","p","kicker")}
       {t("home.centre.h","h2")}
       {t("home.centre.p","p")}
+      {t("addr.full","address", extra=' style="font-style:normal;white-space:pre-line;margin:16px 0"')}
+      <p><a href="{LINKS['maps']}" rel="noopener">{t("con.map")} ↗</a></p>
       <ul class="ticks">
         <li>{icon("check")}{t("home.centre.b1")}</li>
         <li>{icon("check")}{t("home.centre.b2")}</li>
@@ -418,7 +420,7 @@ home = f'''<section class="hero">
   </div>
 </section>
 {cta_band()}'''
-page('index.html', 'home.title', 'Samara Health Care LLP — compassionate elder care and post-hospital recovery. Our first centre, Samara Assisted Living, is open in Mogappair, Chennai.', home)
+page('index.html', 'home.title', 'Samara Health Care LLP — compassionate elder care and post-hospital recovery. Our first centre, Samara Assisted Living, is open in Mogappair West, Chennai.', home)
 
 # ---------------- ABOUT ----------------
 about = page_head('about.k', 'about.h1', 'about.lead', 'nav.about') + f'''
@@ -644,7 +646,7 @@ contact = page_head('con.k', 'con.h1', 'con.lead', 'nav.contact') + f'''
           <dt>{icon("chat")}{t("con.wa")}</dt>
           <dd><a href="https://wa.me/{WA}" rel="noopener">{PHONE2}</a></dd>
           <dt>{icon("pin")}{t("con.addr")}</dt>
-          <dd>{t("addr.line")}<br><a href="{LINKS['maps']}" rel="noopener">{t("con.map")} ↗</a></dd>
+          <dd>{t("addr.first","strong")}<br>{t("addr.full", extra=' style="white-space:pre-line"')}<br><a href="{LINKS['maps']}" rel="noopener">{t("con.map")} ↗</a></dd>
         </dl>
         {t("con.hours","p","muted")}
       </div>
@@ -653,7 +655,7 @@ contact = page_head('con.k', 'con.h1', 'con.lead', 'nav.contact') + f'''
     </aside>
   </div>
 </section>'''
-page('contact.html', 'con.title', 'Contact Samara Health Care — send a care enquiry, call or WhatsApp our team at Samara Assisted Living, Mogappair, Chennai.', contact)
+page('contact.html', 'con.title', 'Contact Samara Health Care — send a care enquiry, call or WhatsApp our team at Samara Assisted Living, Mogappair West, Chennai.', contact)
 
 # ---------------- PRIVACY ----------------
 pv_sections = ''.join(f'{t(f"pv.h.{k}","h2")}{t(f"pv.{k}","p")}' for k in ['what', 'why', 'where', 'keep', 'rights', 'em'])

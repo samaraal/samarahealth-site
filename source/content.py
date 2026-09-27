@@ -27,15 +27,15 @@ T = {
 "footer.privacy": ("Privacy Notice", "தனியுரிமை அறிவிப்பு"),
 "footer.rights": ("All rights reserved.", "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."),
 "footer.emergency": ("In a medical emergency, call 108.", "மருத்துவ அவசரநிலையில் 108-ஐ அழைக்கவும்."),
-"addr.line": ("Samara Assisted Living, Mogappair, Chennai – 600 037", "சமரா அசிஸ்டட் லிவிங், முகப்பேர், சென்னை – 600 037"),
+"addr.line": ("Samara Assisted Living, Mogappair West, Chennai – 600 037", "சமரா அசிஸ்டட் லிவிங், முகப்பேர் மேற்கு, சென்னை – 600 037"),
 
 # ---------- home ----------
 "home.title": ("Samara Health Care — Care that feels like family", "சமரா ஹெல்த் கேர் — குடும்பம் போன்ற பராமரிப்பு"),
 "home.kicker": ("Samara Health Care LLP", "சமரா ஹெல்த் கேர் எல்எல்பி"),
 "home.h1": ("Care that feels like family.", "குடும்பம் போல அக்கறையுடன் பராமரிப்பு."),
-"home.lead": ("We build and run care services for elders and for people recovering after a hospital stay — safe, respectful and transparent. Our first centre, Samara Assisted Living, is now open in Mogappair, Chennai.",
-              "முதியோருக்கும், மருத்துவமனை சிகிச்சைக்குப் பின் குணமடைந்து வருபவர்களுக்கும் பாதுகாப்பான, மரியாதையான, வெளிப்படையான பராமரிப்பு சேவைகளை நாங்கள் உருவாக்கி நடத்துகிறோம். எங்கள் முதல் மையமான சமரா அசிஸ்டட் லிவிங், சென்னை முகப்பேரில் இப்போது செயல்பட்டு வருகிறது."),
-"home.badge": ("Now open in Mogappair, Chennai", "சென்னை முகப்பேரில் இப்போது திறக்கப்பட்டுள்ளது"),
+"home.lead": ("We build and run care services for elders and for people recovering after a hospital stay — safe, respectful and transparent. Our first centre, Samara Assisted Living, is now open in Mogappair West, Chennai.",
+              "முதியோருக்கும், மருத்துவமனை சிகிச்சைக்குப் பின் குணமடைந்து வருபவர்களுக்கும் பாதுகாப்பான, மரியாதையான, வெளிப்படையான பராமரிப்பு சேவைகளை நாங்கள் உருவாக்கி நடத்துகிறோம். எங்கள் முதல் மையமான சமரா அசிஸ்டட் லிவிங், சென்னை முகப்பேர் மேற்கில் இப்போது செயல்பட்டு வருகிறது."),
+"home.badge": ("Now open in Mogappair West, Chennai", "சென்னை முகப்பேர் மேற்கில் இப்போது திறக்கப்பட்டுள்ளது"),
 "home.stat1": ("24×7", "24×7"),
 "home.stat1l": ("Nursing care", "செவிலியர் பராமரிப்பு"),
 "home.stat2": ("3", "3"),
@@ -43,7 +43,7 @@ T = {
 "home.stat3": ("1", "1"),
 "home.stat3l": ("Integrated care team", "ஒருங்கிணைந்த பராமரிப்புக் குழு"),
 "home.centre.k": ("Our first centre", "எங்கள் முதல் மையம்"),
-"home.centre.h": ("Samara Assisted Living, Mogappair", "சமரா அசிஸ்டட் லிவிங், முகப்பேர்"),
+"home.centre.h": ("Samara Assisted Living, Mogappair West", "சமரா அசிஸ்டட் லிவிங், முகப்பேர் மேற்கு"),
 "home.centre.p": ("Professional post-hospital and step-down care, a safe transition from hospital to home. Inaugurated on 27 August 2026 by Dr. S. Manivannan, Founder & Managing Director, Kauvery Hospitals.",
                   "மருத்துவமனையிலிருந்து வீட்டிற்குப் பாதுகாப்பாகத் திரும்ப உதவும் தொழில்முறை மருத்துவமனைக்குப் பிந்தைய பராமரிப்பு. 27 ஆகஸ்ட் 2026 அன்று காவேரி மருத்துவமனைகளின் நிறுவனர் மற்றும் நிர்வாக இயக்குநர் டாக்டர் எஸ். மணிவண்ணன் அவர்களால் திறந்து வைக்கப்பட்டது."),
 "home.centre.b1": ("24×7 skilled nursing care", "24×7 திறமையான செவிலியர் பராமரிப்பு"),
@@ -98,8 +98,8 @@ T = {
 "about.t1.d": ("2026", "2026"),
 "about.t1.p": ("Samara Health Care LLP established.", "சமரா ஹெல்த் கேர் எல்எல்பி தொடங்கப்பட்டது."),
 "about.t2.d": ("27 August 2026", "27 ஆகஸ்ட் 2026"),
-"about.t2.p": ("Samara Assisted Living, Mogappair, Chennai inaugurated by Dr. S. Manivannan, Founder & Managing Director, Kauvery Hospitals.",
-               "சென்னை முகப்பேரில் சமரா அசிஸ்டட் லிவிங், காவேரி மருத்துவமனைகளின் நிறுவனர் மற்றும் நிர்வாக இயக்குநர் டாக்டர் எஸ். மணிவண்ணன் அவர்களால் திறந்து வைக்கப்பட்டது."),
+"about.t2.p": ("Samara Assisted Living, Mogappair West, Chennai inaugurated by Dr. S. Manivannan, Founder & Managing Director, Kauvery Hospitals.",
+               "சென்னை முகப்பேர் மேற்கில் சமரா அசிஸ்டட் லிவிங், காவேரி மருத்துவமனைகளின் நிறுவனர் மற்றும் நிர்வாக இயக்குநர் டாக்டர் எஸ். மணிவண்ணன் அவர்களால் திறந்து வைக்கப்பட்டது."),
 "about.t3.d": ("Today", "இன்று"),
 "about.t3.p": ("Now open and serving residents.", "இப்போது செயல்பட்டு, குடியிருப்பாளர்களுக்குச் சேவை செய்து வருகிறது."),
 
@@ -228,7 +228,7 @@ T = {
 
 # ---------- 2026-09 redesign: new and updated text ----------
 T.update({
-"home.float.loc": ("Mogappair, Chennai – 37", "முகப்பேர், சென்னை – 37"),
+"home.float.loc": ("Mogappair West, Chennai – 37", "முகப்பேர் மேற்கு, சென்னை – 37"),
 "car.team.cap": ("Our nursing and care team", "எங்கள் செவிலியர் மற்றும் பராமரிப்புக் குழு"),
 "msg.k": ("A message from our Director", "எங்கள் இயக்குநரின் செய்தி"),
 "msg.q": ("To heal is not merely to treat an illness; it is to accompany someone through recovery with patience, kindness, and unwavering respect.",
@@ -248,12 +248,12 @@ T.update({
 "team.k": ('Our care team', 'எங்கள் பராமரிப்புக் குழு'),
 "team.h": ('Highly qualified, skilled and dedicated.', 'உயர் தகுதியும், திறமையும், அர்ப்பணிப்பும் கொண்ட குழு.'),
 "team.p": ('Our trained nurses and caregivers, supported by physiotherapists and visiting doctors, are with residents round the clock — attentive, gentle and always ready to help.', 'பயிற்சி பெற்ற எங்கள் செவிலியர்களும் பராமரிப்பாளர்களும், பிசியோதெரபிஸ்டுகள் மற்றும் வருகை மருத்துவர்களின் துணையுடன், 24 மணி நேரமும் குடியிருப்பாளர்களுடன் இருக்கிறார்கள் — கவனத்துடனும், கனிவுடனும், எப்போதும் உதவத் தயாராகவும்.'),
-"team.cap": ('Our front desk and nursing team, Mogappair', 'எங்கள் வரவேற்பு மற்றும் செவிலியர் குழு, முகப்பேர்'),
+"team.cap": ('Our front desk and nursing team, Mogappair West', 'எங்கள் வரவேற்பு மற்றும் செவிலியர் குழு, முகப்பேர் மேற்கு'),
 "top.care": ("24×7 nursing care", "24×7 செவிலியர் பராமரிப்பு"),
 "home.h1a": ("Care that", "குடும்பம் போல"),
 "home.h1b": ("feels like family.", "அக்கறையுடன் பராமரிப்பு."),
-"home.lead": ("Samara Health Care builds and runs care services for elders and for people recovering after a hospital stay — safe, respectful and transparent. Our first centre, Samara Assisted Living, is now open in Mogappair, Chennai.",
-              "முதியோருக்கும், மருத்துவமனையில் சிகிச்சை முடிந்து குணமடைந்து வருபவர்களுக்கும் பாதுகாப்பான, மரியாதையான, வெளிப்படையான பராமரிப்பு சேவைகளை சமரா ஹெல்த் கேர் உருவாக்கி நடத்துகிறது. எங்கள் முதல் மையமான சமரா அசிஸ்டட் லிவிங், சென்னை முகப்பேரில் இப்போது செயல்பட்டு வருகிறது."),
+"home.lead": ("Samara Health Care builds and runs care services for elders and for people recovering after a hospital stay — safe, respectful and transparent. Our first centre, Samara Assisted Living, is now open in Mogappair West, Chennai.",
+              "முதியோருக்கும், மருத்துவமனையில் சிகிச்சை முடிந்து குணமடைந்து வருபவர்களுக்கும் பாதுகாப்பான, மரியாதையான, வெளிப்படையான பராமரிப்பு சேவைகளை சமரா ஹெல்த் கேர் உருவாக்கி நடத்துகிறது. எங்கள் முதல் மையமான சமரா அசிஸ்டட் லிவிங், சென்னை முகப்பேர் மேற்கில் இப்போது செயல்பட்டு வருகிறது."),
 "home.note": ("Admissions open — visits welcome by appointment", "சேர்க்கை நடைபெறுகிறது — முன்பதிவுடன் நேரில் வரலாம்"),
 "home.float.l": ("Skilled nursing, every day", "ஒவ்வொரு நாளும் திறமையான செவிலியர் பராமரிப்பு"),
 "home.float.p": ("Our first centre", "எங்கள் முதல் மையம்"),
@@ -289,7 +289,7 @@ T.update({
 "gal.c3": ("The inauguration gathering", "திறப்பு விழா நிகழ்ச்சி"),
 "gal.c4": ("Honouring our guests", "விருந்தினர்களுக்குக் கௌரவம்"),
 "home.centre.cap": ("Reception, Samara Assisted Living", "வரவேற்பறை, சமரா அசிஸ்டட் லிவிங்"),
-"about.photo.cap": ("Samara Assisted Living, Mogappair", "சமரா அசிஸ்டட் லிவிங், முகப்பேர்"),
+"about.photo.cap": ("Samara Assisted Living, Mogappair West", "சமரா அசிஸ்டட் லிவிங், முகப்பேர் மேற்கு"),
 "about.story.k": ("Our story", "எங்கள் கதை"),
 "about.story.h": ("Between hospital and home, a place that cares.", "மருத்துவமனைக்கும் வீட்டிற்கும் இடையே, அக்கறை கொண்ட ஓர் இடம்."),
 "about.story.p": ("Many families face the same difficult moment: a loved one is ready to leave hospital, but not yet ready to manage at home. Samara was created for that moment — with trained nurses, careful records and the warmth of a family.",
@@ -329,3 +329,6 @@ T.update({
 "faq.more": ("Have another question? Call or WhatsApp us — we are happy to help.", "வேறு கேள்வி உள்ளதா? அழைக்கவும் அல்லது வாட்ஸ்அப் செய்யவும் — உதவ மகிழ்ச்சியடைகிறோம்."),
 "car.roles.h": ("Roles we hire for", "நாங்கள் பணியமர்த்தும் பதவிகள்"),
 })
+
+# Verified centre address from samaraassistedliving.com/contact.html.
+T.update({'addr.full': ('Samara Assisted Living\nRBK VILLA\nNo. 23-A, Reddipalayam Road\nJeswant Nagar Phase 1, Jaswant Nagar\nMogappair West, Chennai\nTamil Nadu 600037', 'சமரா அசிஸ்டட் லிவிங்\nRBK VILLA\nNo. 23-A, Reddipalayam Road\nJeswant Nagar Phase 1, Jaswant Nagar\nமுகப்பேர் மேற்கு, சென்னை\nதமிழ்நாடு 600037'), 'addr.first': ('Our first centre · Mogappair West, Chennai – 37', 'எங்கள் முதல் மையம் · முகப்பேர் மேற்கு, சென்னை – 37'), 'footer.centre': ('Our first centre', 'எங்கள் முதல் மையம்'), 'home.centre.k': ('Our first centre · Mogappair West, Chennai – 37', 'எங்கள் முதல் மையம் · முகப்பேர் மேற்கு, சென்னை – 37')})
