@@ -46,6 +46,12 @@ function add(text,who){var d=document.createElement('div');d.className='sai-msg 
 function progress(text){var p=document.getElementById('sai-progress');p.hidden=!text;document.getElementById('sai-progress-text').textContent=text||'';document.querySelectorAll('.sai-send,#sai-input,#sai-mic,.sai-quick button,.sai-lang').forEach(function(e){e.disabled=e.id==='sai-mic'?busy||startingVoice:busy||startingVoice||!!recorder});conversationUI();}
 function navigationQuestion(text){return /direction|navigat|google.?map|map link|location|address|how.*reach|வழி|முகவரி|இருப்பிடம்|చిరునామా|దారి|నావిగే|पता|रास्ता|दिशा|लोकेशन|ವಿಳಾಸ|ದಾರಿ|ಸ್ಥಳ/i.test(String(text||''))}
 function navigationLink(){var a=document.createElement('a');a.href=MAP_URL;a.target='_blank';a.rel='noopener noreferrer';a.className='sai-map-link';a.textContent='📍 Open Google Maps navigation ↗';document.getElementById('sai-msgs').appendChild(a);scroll();}
+function referenceLinks(text){
+ [['https://samaraassistedliving.com/faq.html','Read Samara’s official FAQ ↗'],['https://family.samaraassistedliving.com','Open secure Family Portal ↗']].forEach(function(item){
+  if(!String(text||'').includes(item[0]))return;
+  var a=document.createElement('a');a.href=item[0];a.target='_blank';a.rel='noopener noreferrer';a.className='sai-map-link';a.textContent=item[1];document.getElementById('sai-msgs').appendChild(a);scroll();
+ });
+}
 function requestAI(options){var controller=new AbortController(),epoch=requestEpoch,timer=setTimeout(function(){controller.abort()},90000);requestController=controller;options.signal=controller.signal;return fetch(endpoint(),options).then(readAIResponse).then(function(x){if(epoch!==requestEpoch){var e=new Error('Cancelled');e.name='AbortError';throw e}return x}).catch(function(e){if(e.name==='AbortError'&&epoch===requestEpoch){var timeout=new Error('Request timed out');timeout.name='TimeoutError';throw timeout}throw e}).finally(function(){clearTimeout(timer);if(requestController===controller)requestController=null})}
 function media(src,cap,video){var d=document.createElement('div');d.className='sai-msg sai-media';d.innerHTML=video?'<video controls playsinline poster="assets/photos/video-poster.jpg"><source src="'+src+'" type="video/mp4"></video><p>'+esc(cap)+'</p>':'<img src="'+src+'" alt="'+esc(cap)+'" loading="lazy"><p>'+esc(cap)+'</p>';document.getElementById('sai-msgs').appendChild(d);scroll()}
 function scroll(){var m=document.getElementById('sai-msgs');m.scrollTop=m.scrollHeight}
@@ -53,14 +59,18 @@ function renderLangs(){var x=document.getElementById('sai-langs');Object.keys(L)
 function setLang(k){if(conversation)endConversation();awaitingAddress=false;if(window.SamaraSpeech)window.SamaraSpeech.stop();lang=L[k]?k:'auto';document.querySelectorAll('.sai-lang').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});var a=L[activeLang()]||L.en;document.getElementById('sai-input').placeholder=(L[lang]||a).ph;var q=document.getElementById('sai-quick');q.innerHTML='';[['rooms','rooms'],['gallery','gallery'],['video','video'],['enquiry','enquiry']].forEach(function(a){var b=document.createElement('button');b.type='button';b.textContent=(L[activeLang()]||L.en)[a[0]];b.onclick=function(){intent(a[1],true)};q.appendChild(b)});if(opened)add((L[lang]||L[activeLang()]||L.en).hello,'bot')}
 function showRooms(){media('assets/photos/care-room-single.webp','Private / single care room');media('assets/photos/care-room.webp','Care room at Samara');media('assets/photos/care-room-triple.webp','Triple-sharing care room')}
 function showGallery(){['centre-building','reception','welcome-wall','care-team','ribbon-cutting','lamp-lighting'].forEach(function(n){media('assets/photos/'+n+'.webp','Samara Assisted Living')})}
-function intent(text,quick){if(busy||startingVoice||recorder)return;if(conversation)endConversation();if(window.SamaraSpeech)window.SamaraSpeech.stop();var raw=String(text||''),s=raw.toLowerCase();if(!quick){add(raw,'user');if(lang==='auto'&&!awaitingAddress)detectedLang=inferLang(raw);}
- if(quick)awaitingAddress=false;
- if(navigationQuestion(raw)){askAI(raw);return}
- if(s==='rooms'||/room|rooms|single|triple|அறை|ரூம்|గది|గదులు|कमरा|कमरे|ಕೊಠಡಿ|ರೂಮ್/.test(s)){showRooms();return}
- if(s==='gallery'||/gallery|photo|photos|picture|கேலரி|பட|గ్యాలరీ|ఫోటో|गैलरी|फोटो|ಗ್ಯಾಲರಿ|ಫೋಟೋ/.test(s)){showGallery();return}
- if(s==='video'||/video|reel|வீடியோ|వీడియో|वीडियो|ವೀಡಿಯೊ/.test(s)){media('assets/video/samara-opening.mp4','Samara Assisted Living — opening video',true);return}
- if(s==='enquiry'||/enquir|admission|contact|விசாரணை|அட்மிஷன்|చేర్పు|पूछताछ|प्रवेश|ವಿಚಾರಣೆ|ದಾಖಲಾತಿ/.test(s)){add(lang==='en'?'Certainly. I will take you to our care enquiry form.':L[lang].fallback,'bot');setTimeout(function(){location.href='contact.html#enquiry'},650);return}
- askAI(raw)}
+function intent(text,quick){
+ if(busy||startingVoice||recorder)return;
+ if(conversation)endConversation();if(window.SamaraSpeech)window.SamaraSpeech.stop();
+ var raw=String(text||'');
+ if(!quick){add(raw,'user');if(lang==='auto'&&!awaitingAddress)detectedLang=inferLang(raw);askAI(raw);return}
+ awaitingAddress=false;
+ if(raw==='rooms'){showRooms();return}
+ if(raw==='gallery'){showGallery();return}
+ if(raw==='video'){media('assets/video/samara-opening.mp4','Samara Assisted Living — opening video',true);return}
+ if(raw==='enquiry'){location.href='contact.html#enquiry';return}
+ askAI(raw);
+}
 function localReply(q){var s=String(q||'').toLowerCase();
  function say(x){var k=activeLang();return x[k]||x.en}
  var R={
@@ -82,7 +92,7 @@ function localReply(q){var s=String(q||'').toLowerCase();
  return null}
 function endpoint(){return CFG.aiEndpoint||((CFG.supabaseUrl||'').replace(/\/$/,'')+'/functions/v1/samara-public-ai')}
 function aiHeaders(json){var h={};if(CFG.supabaseKey){h.apikey=CFG.supabaseKey;if(!CFG.supabaseKey.startsWith('sb_publishable_'))h.Authorization='Bearer '+CFG.supabaseKey}if(json)h['Content-Type']='application/json';return h}
-function handleAI(x,q){if(!awakeVisible())return;progress('');if(x&&x.reply){history.push({role:'user',content:String(x.transcript||q||'').slice(0,3000)},{role:'assistant',content:x.reply.slice(0,3000)});history=history.slice(-8);}if(x&&L[x.language])detectedLang=x.language;if(x&&x.transcript)add(x.transcript,'user');if(x&&x.reply){add(x.reply,'bot');if(window.SamaraSpeech)window.SamaraSpeech.reply(x.reply,x.language||activeLang())}else{var local=localReply(q||'');if(local)add(local,'bot')}awaitingAddress=!!(x&&x.awaiting_address);if((x&&x.show_map)||String(x&&x.reply).includes('maps.app.goo.gl/NwdW9T6WFnosJg8V7'))navigationLink();if(x&&x.action){if(x.action==='rooms')showRooms();else if(x.action==='gallery')showGallery();else if(x.action==='video')media('assets/video/samara-opening.mp4','Samara Assisted Living — opening video',true);else if(x.action==='enquiry'){var a=document.createElement('a');a.href='contact.html#enquiry';a.textContent='Open enquiry form';a.className='sai-enquiry-link';document.getElementById('sai-msgs').appendChild(a);scroll()}}}
+function handleAI(x,q){if(!awakeVisible())return;progress('');if(x&&x.reply){history.push({role:'user',content:String(x.transcript||q||'').slice(0,3000)},{role:'assistant',content:x.reply.slice(0,3000)});history=history.slice(-8);}if(x&&L[x.language])detectedLang=x.language;if(x&&x.transcript)add(x.transcript,'user');if(x&&x.reply){add(x.reply,'bot');if(window.SamaraSpeech)window.SamaraSpeech.reply(x.reply,x.language||activeLang())}else{var local=localReply(q||'');if(local)add(local,'bot')}referenceLinks(x&&x.reply);awaitingAddress=!!(x&&x.awaiting_address);if((x&&x.show_map)||String(x&&x.reply).includes('maps.app.goo.gl/NwdW9T6WFnosJg8V7'))navigationLink();if(x&&x.action){if(x.action==='rooms')showRooms();else if(x.action==='gallery')showGallery();else if(x.action==='video')media('assets/video/samara-opening.mp4','Samara Assisted Living — opening video',true);else if(x.action==='enquiry'){var a=document.createElement('a');a.href='contact.html#enquiry';a.textContent='Open enquiry form';a.className='sai-enquiry-link';document.getElementById('sai-msgs').appendChild(a);scroll()}}}
 function readAIResponse(r){return r.json().catch(function(){return null}).then(function(x){
  if(!r.ok||!x||x.error){var e=new Error('AI request failed');e.status=r.status;e.code=x&&typeof x.code==='string'?x.code:'';throw e}
  if(typeof x.reply!=='string'||!x.reply.trim()){var e=new Error('Empty AI response');e.status=502;throw e}

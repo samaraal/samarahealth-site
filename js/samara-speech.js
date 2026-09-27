@@ -85,7 +85,7 @@ function reply(text,language){
  var messages=el('sai-msgs'),bubble=messages&&messages.lastElementChild;
  if(!bubble)return;
  var button=document.createElement('button');button.type='button';button.className='sai-listen';button.textContent='▶ Listen';button.setAttribute('aria-label','Listen to this reply');
- var item={text:String(text).replace(/https?:\/\/[^\s)]+/g,'the Google Maps link shown in chat'),language:language||'en',button:button};
+ var item={text:String(text).replace(/https?:\/\/[^\s)]+/g,function(url){return url.includes('maps.app.goo.gl')?'the Google Maps link shown in chat':url.includes('/faq.html')?'the FAQ link shown in chat':url.includes('family.samaraassistedliving.com')?'the Family Portal link shown in chat':'the website link shown in chat'}),language:language||'en',button:button};
  button.onclick=function(){endConversation();unlock();if(activeButton===button&&state!=='idle')stop();else playReply(item)};
  bubble.appendChild(button);last=item;
  if(enabled&&available())playReply(item);
