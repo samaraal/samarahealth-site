@@ -3,5 +3,7 @@
 window.SAMARA_SITE_CONFIG = Object.freeze({
   supabaseUrl: 'https://askalabwtlrnoodinayq.supabase.co',
   supabaseKey: 'sb_publishable_MPf0spA1IsJWWR5-ltVAyA_Z_gctBr-',
-  whatsapp: '917395961616'
+  whatsapp: '917395961616',
+  // Secure server-side AI endpoint. Leave blank until the backend function is deployed.
+  aiEndpoint: ''
 });

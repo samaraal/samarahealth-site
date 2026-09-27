@@ -174,6 +174,7 @@ def page(fname, title_key, desc, body, active=None, og_image='assets/photos/cent
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css?v={VERSION}">
+<link rel="stylesheet" href="css/samara-ai.css?v={VERSION}">
 <script>document.documentElement.classList.add('js')</script>
 {LDJSON if fname == 'index.html' else ''}
 </head>
@@ -186,6 +187,7 @@ def page(fname, title_key, desc, body, active=None, og_image='assets/photos/cent
 <script src="js/config.js?v={VERSION}"></script>
 <script src="js/i18n.js?v={VERSION}"></script>
 <script src="js/site.js?v={VERSION}"></script>
+<script src="js/samara-ai.js?v={VERSION}"></script>
 </body>
 </html>
 '''
