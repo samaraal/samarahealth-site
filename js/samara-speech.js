@@ -5,6 +5,11 @@ var cfg=window.SAMARA_SITE_CONFIG||{},enabled=true,serial=0,pending=null;
 var player=null,cached=null,last=null,activeButton=null,state='idle';
 var context=null,sources=[],nextTime=0,downloadDone=false;
 try{enabled=localStorage.getItem('samara-spoken-replies')!=='off'}catch(e){}
+// Supported mobile browsers keep distinct recording and media-playback audio modes.
+// Never change the user's device volume or amplify audio to compensate for routing.
+function audioMode(type){try{if(typeof navigator!=='undefined'&&navigator.audioSession)navigator.audioSession.type=type}catch(e){}}
+function beginCapture(){audioMode('play-and-record')}
+function endCapture(){audioMode('playback')}
 function el(id){return document.getElementById(id)}
 function status(text){var x=el('sai-speech-status');if(x)x.textContent=text}
 function render(){var t=el('sai-sound-toggle'),s=el('sai-sound-stop');if(t){t.textContent=enabled?'🔊 Voice on':'🔇 Voice off';t.setAttribute('aria-pressed',String(enabled))}if(s)s.disabled=state==='idle'}
@@ -58,7 +63,7 @@ async function streamPCM(response,reply,id){
   if(!sources.length)completed();
  }catch(e){await reader.cancel().catch(function(){});throw e}finally{reader.releaseLock()}
 }
-function playReply(reply){
+async function playReply(reply){
  stop();if(!available())return;if(window.SamaraWake)window.SamaraWake.hold('speech');var id=serial;
  activeButton=reply.button;state='loading';reply.button.textContent='■ Stop';status('Preparing voice…');render();
  function failed(e){if(id!==serial)return;stop();if(window.SamaraConversation)window.SamaraConversation.speechFailed();status(e&&e.name==='NotAllowedError'?'Tap Listen once to enable voice on this device.':'Voice unavailable. Tap Listen to retry; your text reply is ready.')}
@@ -67,6 +72,10 @@ function playReply(reply){
   if(!player)player=new Audio();player.src=url;player.onended=function(){if(id===serial)completed()};player.onerror=failed;
   Promise.resolve(player.play()).then(function(){if(id===serial){state='playing';status('Speaking · AI-generated voice');render()}}).catch(failed);
  }
+ // Capture tracks have ended before this point; restore media playback before any samples.
+ endCapture();
+ try{if(context&&context.state!=='running')await context.resume()}catch(e){failed(e);return}
+ if(id!==serial||!available())return;
  if(cached&&cached.text===reply.text&&cached.language===reply.language){try{if(cached.pcm){schedule(cached.pcm,id);downloadDone=true}else start(cached.url)}catch(e){failed(e)}return}
  var controller=new AbortController();pending=controller;var timer=setTimeout(function(){controller.abort()},50000);
  var url=cfg.aiEndpoint||((cfg.supabaseUrl||'').replace(/\/$/,'')+'/functions/v1/samara-public-ai');
@@ -106,6 +115,6 @@ function init(){
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
  window.addEventListener('pagehide',function(){stop();release()});render();
 }
-window.SamaraSpeech={reply:reply,stop:stop,unlock:unlock,active:function(){return state!=='idle'},enable:function(){enabled=true;try{localStorage.setItem('samara-spoken-replies','on')}catch(e){}unlock();render()}};
+window.SamaraSpeech={beginCapture:beginCapture,endCapture:endCapture,reply:reply,stop:stop,unlock:unlock,active:function(){return state!=='idle'},enable:function(){enabled=true;try{localStorage.setItem('samara-spoken-replies','on')}catch(e){}unlock();render()}};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

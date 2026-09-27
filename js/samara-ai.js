@@ -112,13 +112,13 @@ function voiceError(e){
 function askAI(q){if(busy)return;if(window.SamaraSpeech)window.SamaraSpeech.stop();busy=true;holdWake('request');progress('Preparing your reply…');requestAI({method:'POST',headers:aiHeaders(true),body:JSON.stringify({message:q,language:lang==='auto'?(awaitingAddress?activeLang():'auto'):lang,awaiting_address:awaitingAddress,history:history,page:location.pathname})}).then(function(x){handleAI(x,q)}).catch(function(e){if(e.name==='AbortError')return;if(conversation)endConversation('Conversation paused. Please try again.');var local=localReply(q);add(local||'Please try again, or use Enquiry to contact the Samara care team.','bot')}).finally(function(){busy=false;releaseWake('request');progress('');conversationUI();resumeConversation()})}
 function bestMime(){var a=['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg;codecs=opus'];for(var i=0;i<a.length;i++){try{if(window.MediaRecorder&&MediaRecorder.isTypeSupported(a[i]))return a[i]}catch(e){}}return''}
 // Explicitly started, turn-based conversation; never listen over Samara's speech.
-var conversation=false,voiceToken=0,retainedMic=null,vadContext=null,vadSource=null,vadTimer=null,nextListenTimer=null;
+var conversation=false,voiceToken=0,vadContext=null,vadSource=null,vadTimer=null,nextListenTimer=null;
 function conversationUI(){var b=document.getElementById('sai-conversation-toggle');if(!b)return;b.textContent=conversation?'■ End conversation':'Start conversation';b.setAttribute('aria-pressed',String(conversation));b.disabled=!conversation&&(busy||startingVoice||!!recorder);}
 function clearVAD(){if(vadTimer){clearInterval(vadTimer);vadTimer=null}if(vadSource){vadSource.disconnect();vadSource=null}}
 function closeMic(st){if(st)st.getTracks().forEach(function(t){t.onended=null;t.stop()})}
 function endConversation(message){
  var wasOn=conversation;conversation=false;clearTimeout(nextListenTimer);nextListenTimer=null;
- stopVoice(true);closeMic(retainedMic);retainedMic=null;
+ stopVoice(true);
  if(vadContext){vadContext.close().catch(function(){});vadContext=null}
  releaseWake('conversation');
  if(wasOn){requestEpoch++;if(requestController)requestController.abort();if(window.SamaraSpeech)window.SamaraSpeech.stop()}
@@ -155,7 +155,7 @@ function stopVoice(discard){
  clearVAD();if(recordingTimer){clearTimeout(recordingTimer);recordingTimer=null}
  if(discard){voiceToken++;startingVoice=false;if(recorder)recorder.samaraDiscard=true}
  if(recorder&&recorder.state!=='inactive')recorder.stop();
- if(discard){closeMic(stream);stream=null;recorder=null;var mic=document.getElementById('sai-mic');if(mic){mic.classList.remove('listening');mic.textContent='🎙';mic.setAttribute('aria-label','Voice input')}progress('');conversationUI()}
+ if(discard){closeMic(stream);stream=null;recorder=null;if(window.SamaraSpeech&&window.SamaraSpeech.endCapture)window.SamaraSpeech.endCapture();var mic=document.getElementById('sai-mic');if(mic){mic.classList.remove('listening');mic.textContent='🎙';mic.setAttribute('aria-label','Voice input')}progress('');conversationUI()}
  releaseWake('recording');
 }
 function voice(){
@@ -165,10 +165,11 @@ function voice(){
  if(recorder&&recorder.state==='recording'){stopVoice();return}
  if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){endConversation();add((L[activeLang()]||L.en).noVoice,'bot');return}
  var token=++voiceToken;startingVoice=true;holdWake('recording');progress('Opening microphone…');conversationUI();
- var input=retainedMic&&retainedMic.getAudioTracks().every(function(t){return t.readyState==='live'})?Promise.resolve(retainedMic):navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
+ if(window.SamaraSpeech&&window.SamaraSpeech.beginCapture)window.SamaraSpeech.beginCapture();
+ var input=navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
  input.then(function(st){
-  if(token!==voiceToken||!awakeVisible()){closeMic(st);return}
-  stream=st;if(conversation)retainedMic=st;st.getAudioTracks().forEach(function(t){t.enabled=true;t.onended=function(){endConversation('Microphone disconnected. Tap Start conversation to try again.')}});
+  if(token!==voiceToken||!awakeVisible()){closeMic(st);if(!recorder&&!startingVoice&&window.SamaraSpeech&&window.SamaraSpeech.endCapture)window.SamaraSpeech.endCapture();return}
+  stream=st;st.getAudioTracks().forEach(function(t){t.enabled=true;t.onended=function(){endConversation('Microphone disconnected. Tap Start conversation to try again.')}});
   var parts=[],mime=bestMime(),rec=mime?new MediaRecorder(st,{mimeType:mime}):new MediaRecorder(st);recorder=rec;
   var mic=document.getElementById('sai-mic'),note=document.querySelector('.sai-note');
   rec.ondataavailable=function(e){if(e.data?.size)parts.push(e.data)};
@@ -177,7 +178,8 @@ function voice(){
    if(token!==voiceToken||rec.samaraDiscard){closeMic(st);return}
    clearVAD();clearTimeout(recordingTimer);recordingTimer=null;
    var type=rec.mimeType||(parts[0]?.type)||'audio/webm',blob=new Blob(parts,{type:type});parts=[];
-   if(conversation)st.getAudioTracks().forEach(function(t){t.enabled=false});else closeMic(st);
+   // Muting a live track keeps mobile audio in recording mode and can lower reply volume.
+   closeMic(st);if(window.SamaraSpeech&&window.SamaraSpeech.endCapture)window.SamaraSpeech.endCapture();
    stream=null;recorder=null;mic.classList.remove('listening');mic.textContent='🎙';mic.setAttribute('aria-label','Voice input');
    if(blob.size<1000){releaseWake('recording');endConversation('No useful speech was captured. Please try again.');return}
    note.textContent=conversation?'Mic paused while Samara replies. It will listen again automatically.':'Processing voice and detecting language…';
