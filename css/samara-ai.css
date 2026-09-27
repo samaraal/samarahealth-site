@@ -20,3 +20,5 @@
 .sai-panel .sai-compose input:focus{outline:2px solid #df56a6;outline-offset:2px}
 .sai-mic{background:linear-gradient(135deg,#f9d3e9,#fff0f9);color:#ad0879}.sai-mic.listening{background:linear-gradient(135deg,#ac0876,#d92a91);color:#fff}
 .sai-progress{background:linear-gradient(100deg,#f9d4eb,#fff0f9);border-color:#efbcdb;color:#911363}.sai-progress-dots i{background:#c51b87}
+
+.sai-awake{padding:4px 12px;background:#fff5fb;color:#8d1a63;text-align:center;font-size:11px;flex-shrink:0}.sai-awake[hidden]{display:none}
