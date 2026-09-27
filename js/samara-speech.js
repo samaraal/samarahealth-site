@@ -57,7 +57,7 @@ function reply(text,language){
  var messages=el('sai-msgs'),bubble=messages&&messages.lastElementChild;
  if(!bubble)return;
  var button=document.createElement('button');button.type='button';button.className='sai-listen';button.textContent='▶ Listen';button.setAttribute('aria-label','Listen to this reply');
- var item={text:String(text),language:language||'en',button:button};
+ var item={text:String(text).replace(/https?:\/\/[^\s)]+/g,'the Google Maps link shown in chat'),language:language||'en',button:button};
  button.onclick=function(){if(activeButton===button&&state!=='idle')stop();else playReply(item)};
  bubble.appendChild(button);last=item;
  if(enabled&&available())playReply(item);
