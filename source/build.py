@@ -4,7 +4,7 @@ import json, os, html
 from content import T
 
 OUT = __import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), '..')
-VERSION = '2.9.4'
+VERSION = '2.9.5'
 SITE = 'https://samarahealth.in'
 PHONE1, PHONE1_T = '+91 99767 35577', '+919976735577'
 PHONE2, PHONE2_T = '+91 73959 61616', '+917395961616'
