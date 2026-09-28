@@ -187,6 +187,43 @@ async function answerWithFallback(message,history=[],language='auto'){
 }
 async function openaiTranscribe(file:File){const key=Deno.env.get('OPENAI_API_KEY');if(!key)throw new Error('OpenAI key missing');const fd=new FormData();fd.append('file',file,file.name||'voice.webm');fd.append('model',Deno.env.get('OPENAI_TRANSCRIBE_MODEL')||'gpt-4o-mini-transcribe');const r=await fetch('https://api.openai.com/v1/audio/transcriptions',{method:'POST',headers:{Authorization:`Bearer ${key}`},body:fd});if(!r.ok)await providerFailure(r,'OpenAI transcription');const j=await r.json();return String(j.text||'').trim()}
 
+// v2.9 (28-09-2026): Tamil numbers for the voice. The voice model misreads digits in Tamil
+// (e.g. "23" spoken as இருபத்தி இரண்டு, pincode read in another language), so every number in a
+// Tamil reply is written out in Tamil words before it is spoken. The chat text itself is unchanged.
+const TA_ONES=['பூஜ்ஜியம்','ஒன்று','இரண்டு','மூன்று','நான்கு','ஐந்து','ஆறு','ஏழு','எட்டு','ஒன்பது'];
+const TA_TEENS=['பத்து','பதினொன்று','பன்னிரண்டு','பதின்மூன்று','பதினான்கு','பதினைந்து','பதினாறு','பதினேழு','பதினெட்டு','பத்தொன்பது'];
+const TA_TENS=['','','இருபது','முப்பது','நாற்பது','ஐம்பது','அறுபது','எழுபது','எண்பது','தொண்ணூறு'];
+const TA_TENS_C=['','','இருபத்தி','முப்பத்தி','நாற்பத்தி','ஐம்பத்தி','அறுபத்தி','எழுபத்தி','எண்பத்தி','தொண்ணூற்றி'];
+const TA_HUND=['','நூறு','இருநூறு','முந்நூறு','நானூறு','ஐந்நூறு','அறுநூறு','எழுநூறு','எண்ணூறு','தொள்ளாயிரம்'];
+const TA_HUND_C=['','நூற்றி','இருநூற்றி','முந்நூற்றி','நானூற்றி','ஐந்நூற்றி','அறுநூற்றி','எழுநூற்றி','எண்ணூற்றி','தொள்ளாயிரத்தி'];
+const TA_THOU=['','ஆயிரம்','இரண்டாயிரம்','மூன்றாயிரம்','நான்காயிரம்','ஐந்தாயிரம்','ஆறாயிரம்','ஏழாயிரம்','எட்டாயிரம்','ஒன்பதாயிரம்','பத்தாயிரம்'];
+function taBelow100(n:number){if(n<10)return TA_ONES[n];if(n<20)return TA_TEENS[n-10];const t=Math.floor(n/10),u=n%10;return u?TA_TENS_C[t]+' '+TA_ONES[u]:TA_TENS[t]}
+function taBelow1000(n:number){if(n<100)return taBelow100(n);const h=Math.floor(n/100),r=n%100;return r?TA_HUND_C[h]+' '+taBelow100(r):TA_HUND[h]}
+function taThousands(k:number){return k<=10?TA_THOU[k]:taBelow1000(k)+' ஆயிரம்'}
+function taWords(n:number):string{
+  if(!Number.isFinite(n)||n<0||n>=1e9)return String(n);
+  if(n<1000)return taBelow1000(n);
+  if(n<100000){const k=Math.floor(n/1000),r=n%1000;const head=taThousands(k);return r?head.replace(/ம்$/,'த்தி')+' '+taBelow1000(r):head}
+  if(n<10000000){const l=Math.floor(n/100000),r=n%100000;const head=(l===1?'ஒரு':taBelow100(l))+' லட்சம்';return r?head.replace(/ம்$/,'த்தி')+' '+taWords(r):head}
+  const c=Math.floor(n/10000000),r=n%10000000;const head=(c===1?'ஒரு':taBelow1000(c))+' கோடி';return r?head+' '+taWords(r):head;
+}
+const taDigits=(d:string)=>d.split('').map(x=>TA_ONES[Number(x)]).join(' ');
+function tamilNumbersForSpeech(text:string){
+  let t=text.replace(/[௦-௯]/g,(c)=>String(c.charCodeAt(0)-0x0BE6));          // Tamil digits → 0-9
+  t=t.replace(/\bNo\.\s*(?=\d)/gi,'எண் ');                                     // "No. 23-A" → "எண் 23-A"
+  t=t.replace(/\+91[\s-]*/g,'');                                                // country code
+  t=t.replace(/(\d)\s*[-–]\s*([A-Za-z])\b/g,'$1 $2');                           // 23-A → 23 A
+  // Phone numbers / pincodes → digit by digit.
+  t=t.replace(/\b(\d{3,5}) (\d{3,7})\b/g,(m,a,b)=>(a+b).length===10?taDigits(a+b)+',':m);   // mobile written 73959 61616
+  t=t.replace(/\d{6,}/g,(m)=>taDigits(m)+',');                                     // pincode / phone
+  t=t.replace(/(\d{1,2}):(\d{2})/g,(_,h,mm)=>taWords(+h)+(+mm?' '+taWords(+mm):''));         // 10:30
+  t=t.replace(/(\d+)\.(\d+)/g,(_,a,b)=>taWords(+a)+' புள்ளி '+taDigits(b));               // 98.6
+  t=t.replace(/\d{1,3}(?:,\d{2,3})+/g,(m)=>taWords(+m.replace(/,/g,'')));                 // 1,00,000
+  t=t.replace(/\d+/g,(m)=>taWords(+m));
+  t=t.replace(/(\S)%/g,'$1 சதவீதம்');
+  return t.replace(/,\s*([.,])/g,'$1').replace(/ {2,}/g,' ');
+}
+
 async function openaiSpeech(body: any): Promise<Response> {
   let text = typeof body.text === 'string' ? body.text.trim() : '';
   if (!text) return out({error:'Reply text required'},400);
@@ -201,6 +238,7 @@ async function openaiSpeech(body: any): Promise<Response> {
   text=text.replace(/\bKauvery\b/gi,code==='ta'?'காவேரி':'Kaveri');
   // Postal locality suffix: the dash is punctuation, not a negative number.
   text=text.replace(/(Chennai|சென்னை|చెన్నై|चेन्नई|ಚೆನ್ನೈ|ചെന്നൈ)\s*[-–—−]\s*(37|௩௭|౩౭|३७|೩೭|൩൭)/giu,'$1 $2');
+  if(code==='ta')text=tamilNumbersForSpeech(text);
   const format=body.format==='pcm'?'pcm':'mp3';
   const model = Deno.env.get('SAMARA_TTS_MODEL') || 'gpt-4o-mini-tts';
   const response = await fetch('https://api.openai.com/v1/audio/speech', {
@@ -208,7 +246,7 @@ async function openaiSpeech(body: any): Promise<Response> {
     headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},
     signal:AbortSignal.timeout(45000),
     body:JSON.stringify({model,voice:'coral',input:text,response_format:format,
-      instructions:`Read the supplied text exactly in ${language}. Use a warm, calm, clear voice at a comfortable pace. Pronounce Kaveri as kaa-vay-ree (காவேரி). Do not add words or translate the text.`})
+      instructions:`Read the supplied text exactly in ${language}. Use a warm, calm, clear voice at a comfortable pace. Pronounce Kaveri as kaa-vay-ree (காவேரி). Do not add words or translate the text.`+(code==='ta'?' Every number is already written as Tamil words (for example இருபத்தி மூன்று = 23, ஆறு பூஜ்ஜியம் பூஜ்ஜியம் பூஜ்ஜியம் மூன்று ஏழு = pincode 600037): read those words exactly as written, in Tamil, one by one - never change, round or guess a number and never switch to English, Hindi or any other language for numbers.':'')})
   });
   if (!response.ok) await providerFailure(response,'OpenAI',model);
   return new Response(response.body,{headers:{...CORS,'Content-Type':format==='pcm'?'audio/pcm':'audio/mpeg','Cache-Control':'no-store'}});
