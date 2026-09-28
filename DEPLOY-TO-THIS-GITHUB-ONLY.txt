@@ -1,0 +1,17 @@
+samarahealth.in v2.11.0 — Samara AI update — upload ONLY to GitHub repo: samarahealth-site (samarahealth.in)
+
+1. Upload these files to repo samarahealth-site keeping the same folders:
+   404.html, about.html, careers.html, contact.html, index.html, privacy.html, services.html,
+   js/samara-ai.js, css/samara-ai.css, source/build.py, VERSION.txt
+   (Do NOT upload the supabase/ folder to GitHub — it is only for step 2.)
+
+2. AI SERVER (do this ONCE only — it is shared by BOTH websites; skip it if you already did it from the other package):
+   Supabase > Edge Functions > samara-public-ai > Code: replace ALL the code with
+   supabase/functions/samara-public-ai/index.ts and press Deploy. Do not change its settings or secrets.
+   This adds: the correct phone +91 99767 35577 and WhatsApp +91 73959 61616, Call/WhatsApp buttons,
+   visiting hours 10 AM - 5 PM, the new pricing wording (basic package = room rent, nursing care, food),
+   faster replies (Gemini "thinking" switched off for these short answers), answers taken from both
+   official websites when a question is not covered (e.g. who developed the website),
+   "Book a visit" from chat, and Malayalam replies.
+
+3. Open https://samarahealth.in, tap "Ask Samara AI" and check the "Book a visit" button and the മലയാളം language.

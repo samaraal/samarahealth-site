@@ -24,3 +24,105 @@
 .sai-awake{padding:4px 12px;background:#fff5fb;color:#8d1a63;text-align:center;font-size:11px;flex-shrink:0}.sai-awake[hidden]{display:none}
 
 .sai-conversation{padding:8px 12px;background:linear-gradient(110deg,#fce1f1,#fff8fc);border-bottom:1px solid #f0c4de;flex-shrink:0}.sai-conversation button{width:100%;padding:10px 12px;border:1px solid #d63d99;border-radius:12px;color:#941362;background:linear-gradient(110deg,#fff5fc,#f8cfe7);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}.sai-conversation button[aria-pressed="true"]{background:linear-gradient(110deg,#aa076e,#de3196);color:white}.sai-conversation button:disabled{opacity:.5;cursor:default}.sai-conversation button:focus-visible{outline:2px solid #941362;outline-offset:2px}.sai-conversation small{display:block;text-align:center;font-size:11px;line-height:1.4;color:#76516c;margin-top:5px}
+/* 28-09-2026: Call / WhatsApp buttons, "Book a visit" quick button and in-chat visit form */
+.sai-contact{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 14px}
+.sai-contact a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:9px 10px;border-radius:12px;font-weight:800;font-size:.84rem;text-decoration:none;text-align:center;line-height:1.25}
+.sai-contact-call{background:#9c0040;color:#fff!important}
+.sai-contact-wa{background:#1f9d55;color:#fff!important}
+.sai-panel .sai-quick button.sai-quick-visit{background:linear-gradient(135deg,#9c0040,#c3025a)!important;border-color:#9c0040!important;color:#fff!important}
+.sai-visit{max-width:100%;background:#fff;border:1px solid #f0c6dc;color:#3c2731;display:grid;gap:8px}
+.sai-visit strong{color:#9c0040;font-size:.95rem}
+.sai-visit label{display:grid;gap:4px;font-size:.8rem;font-weight:700;color:#5a2440}
+.sai-visit input,.sai-visit select{width:100%;box-sizing:border-box;min-height:40px;padding:8px 10px;border:1px solid #dcbac9;border-radius:10px;font:inherit;font-size:.9rem;font-weight:500;background:#fff;color:#2e1a24}
+.sai-visit input:focus,.sai-visit select:focus{outline:2px solid #e4a3c4;border-color:#c3025a}
+.sai-visit-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sai-visit .sai-visit-consent{display:flex;gap:8px;align-items:flex-start;font-weight:500;line-height:1.35}
+.sai-visit .sai-visit-consent input{width:18px;min-height:18px;margin:1px 0 0;flex:0 0 18px;accent-color:#9c0040}
+.sai-visit-send{min-height:44px;border:0;border-radius:12px;background:#9c0040;color:#fff;font-weight:800;font-size:.92rem;cursor:pointer}
+.sai-visit-send:disabled{opacity:.65;cursor:default}
+.sai-visit-msg{margin:0;font-size:.82rem;font-weight:700;color:#b3261e}
+.sai-visit-msg:empty{display:none}
+.sai-visit-msg.ok{color:#1f7a45}
+.sai-visit-msg a{color:#1f9d55;text-decoration:underline}
+.sai-hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0}
+@media(max-width:480px){.sai-visit-row{grid-template-columns:1fr}}
+@media(max-width:360px){.sai-contact{grid-template-columns:1fr}}
+/* Keep the open assistant above sticky site headers and language bars. */
+.sai-panel{z-index:100050}
+/* 28-09-2026: large pop-up viewer for rooms, gallery and video */
+.sai-album{max-width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:8px;background:#fff;border:1px solid #f0c6dc}
+.sai-album.sai-album-one{grid-template-columns:1fr}
+.sai-album p{grid-column:1/-1;margin:2px 2px 0;font-size:.76rem;color:#8b5a73;font-weight:700}
+.sai-thumb{position:relative;padding:0;border:0;border-radius:10px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;background:#f5e9ef}
+.sai-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.sai-thumb-video{aspect-ratio:16/9;cursor:pointer}
+.sai-thumb-video::after{content:'▶';position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:rgba(156,0,64,.9);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;padding-left:4px;box-sizing:border-box}
+.sai-thumb:focus-visible{outline:3px solid #c3025a;outline-offset:2px}
+.sai-viewer{position:fixed;z-index:100070;right:calc(18px + min(390px, 100vw - 24px) + 14px);bottom:18px;width:min(760px,calc(100vw - 390px - 64px));height:min(650px,calc(100dvh - 32px));background:#fff;border:1px solid #ead9e1;border-radius:22px;box-shadow:0 24px 60px rgba(54,13,34,.28);display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;padding:52px 6px 14px;box-sizing:border-box;overflow:hidden}
+.sai-viewer::before{content:'Samara Assisted Living';position:absolute;left:0;right:0;top:0;height:44px;display:flex;align-items:center;padding:0 18px;background:linear-gradient(120deg,#9c0040,#c3025a);color:#fff;font:800 .95rem/1 "Nunito Sans",system-ui,sans-serif}
+.sai-v-stage{margin:0;display:grid;justify-items:center;gap:10px;min-width:0;max-height:100%}
+.sai-v-media{display:flex;align-items:center;justify-content:center;width:100%;min-height:0}
+.sai-v-media img,.sai-v-media video{max-width:100%;max-height:calc(min(650px, 100dvh - 32px) - 120px);border-radius:14px;background:#f5e9ef;object-fit:contain}
+.sai-v-media video{width:min(960px,100%)}
+.sai-viewer figcaption{display:flex;gap:14px;justify-content:center;align-items:baseline;color:#5a1238;font:700 1rem/1.3 "Nunito Sans",system-ui,sans-serif;text-align:center}
+.sai-v-count{color:#a0507a;font-weight:600;font-size:.88rem}
+.sai-v-close{position:absolute;top:5px;right:10px;z-index:1;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.22);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+.sai-v-prev,.sai-v-next{width:44px;height:44px;border:1px solid #eeb3d5;border-radius:50%;background:#fff0f8;color:#9c0040;font-size:32px;line-height:1;cursor:pointer;justify-self:center}
+.sai-v-prev[hidden],.sai-v-next[hidden]{display:block;visibility:hidden}
+.sai-v-close:focus-visible,.sai-v-prev:focus-visible,.sai-v-next:focus-visible{outline:3px solid #f9a800;outline-offset:2px}
+@media(max-width:899px){.sai-viewer{right:18px;width:min(390px,calc(100vw - 24px));top:calc(100dvh - 18px - min(650px, 100dvh - 32px) + 70px);bottom:auto;height:min(52dvh,440px);grid-template-columns:40px minmax(0,1fr) 40px;padding:50px 2px 10px}.sai-v-prev,.sai-v-next{width:36px;height:36px;font-size:26px}.sai-viewer figcaption{font-size:.9rem}.sai-v-media img,.sai-v-media video{max-height:calc(min(52dvh,440px) - 100px);border-radius:10px}}
+@media(max-width:899px){.sai-viewer{height:auto;grid-template-columns:1fr;padding:50px 8px 12px}.sai-v-media img,.sai-v-media video{width:100%;max-height:48dvh}.sai-v-prev,.sai-v-next{position:absolute;top:calc(50px + 24dvh - 18px);z-index:1;background:rgba(255,255,255,.9);box-shadow:0 3px 10px rgba(0,0,0,.2)}.sai-v-prev{left:14px}.sai-v-next{right:14px}}
+@media(max-width:600px){.sai-viewer{left:8px;right:8px;width:auto;top:calc(8dvh + 74px)}}
+/* 28-09-2026: once-per-visit introduction bubble above the Ask Samara AI button */
+.sai-teaser{position:fixed;right:18px;bottom:150px;z-index:56;width:min(370px,calc(100vw - 36px));box-sizing:border-box;padding:18px 20px 18px;background:#fff;border:2px solid #f0bcd6;border-radius:20px;box-shadow:0 18px 44px rgba(70,12,45,.26);color:#3c2731;font:500 1.02rem/1.5 "Nunito Sans",system-ui,sans-serif;cursor:pointer;opacity:0;transform:translateY(12px) scale(.97);transform-origin:bottom right;transition:opacity .28s ease,transform .28s ease;pointer-events:none}
+.sai-teaser.show{opacity:1;transform:none;pointer-events:auto}
+.sai-teaser strong{display:block;color:#9c0040;font-size:1.2rem;margin:0 30px 6px 0}
+.sai-teaser p{margin:0 0 14px}
+.sai-teaser-go{border:0;border-radius:999px;background:linear-gradient(135deg,#9c0040,#c3025a);color:#fff;font:800 1rem/1 "Nunito Sans",system-ui,sans-serif;padding:13px 22px;cursor:pointer;box-shadow:0 6px 16px rgba(156,0,64,.25)}
+.sai-teaser-x{position:absolute;top:8px;right:10px;width:34px;height:34px;border:0;border-radius:50%;background:#fbe7f1;color:#9c0040;font-size:20px;line-height:1;cursor:pointer}
+.sai-teaser-go:focus-visible,.sai-teaser-x:focus-visible{outline:3px solid #f9a800;outline-offset:2px}
+@keyframes saiGlow{0%,100%{box-shadow:0 12px 30px rgba(70,12,45,.28),0 0 0 0 rgba(195,2,90,.5)}50%{box-shadow:0 12px 30px rgba(70,12,45,.28),0 0 0 12px rgba(195,2,90,0)}}
+.sai-launch.sai-glow{animation:saiGlow 1.4s ease-out 2}
+@media(max-width:600px){.sai-teaser{right:12px;bottom:146px;width:min(320px,calc(100vw - 24px));font-size:.92rem;padding:14px 16px}.sai-teaser strong{font-size:1.05rem}.sai-teaser-go{font-size:.92rem;padding:11px 18px}}
+@media(prefers-reduced-motion:reduce){.sai-teaser{transition:none}.sai-launch.sai-glow{animation:none}}
+.sai-bubble-launcher .sai-launch{display:none!important}
+.sai-teaser{border-left:6px solid #c3025a}
+.sai-mini{position:fixed;right:18px;bottom:150px;z-index:56;width:64px;height:64px;border-radius:50%;border:3px solid #fff;background:linear-gradient(135deg,#9c0040,#c3025a);box-shadow:0 12px 30px rgba(70,12,45,.3);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;opacity:0;transform:scale(.8);transition:opacity .2s ease,transform .2s ease}
+.sai-mini.show{opacity:1;transform:none}
+.sai-mini img{width:44px;height:44px;border-radius:50%;background:#fff;object-fit:contain;padding:4px;box-sizing:border-box}
+.sai-mini span{position:absolute;right:-4px;bottom:-4px;background:#f9a800;color:#4a1030;border:2px solid #fff;border-radius:999px;font:900 .7rem/1 "Nunito Sans",system-ui,sans-serif;padding:4px 6px}
+.sai-mini:focus-visible{outline:3px solid #f9a800;outline-offset:3px}
+@media(max-width:600px){.sai-mini{right:14px;bottom:146px;width:58px;height:58px}.sai-mini img{width:40px;height:40px}}
+/* 28-09-2026: topic cards in the side window (directors, location, admission, charges, services, family portal) */
+.sai-viewer.sai-card-view{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:0;grid-template-columns:none;height:auto;max-height:min(650px,calc(100dvh - 32px))}
+.sai-card-view::before{content:none}
+.sai-card-title{flex:0 0 auto;display:flex;align-items:center;min-height:52px;padding:0 60px 0 20px;background:linear-gradient(120deg,#9c0040,#c3025a);color:#fff;font:800 1.08rem/1.25 "Nunito Sans",system-ui,sans-serif}
+.sai-card-view .sai-v-close{top:9px}
+.sai-card-body{flex:1 1 auto;overflow:auto;padding:16px 22px 18px;color:#3c2731;font:500 .95rem/1.55 "Nunito Sans",system-ui,sans-serif}
+.sai-card-body h4{margin:16px 0 6px;color:#9c0040;font-size:.98rem}
+.sai-card-body h4:first-child{margin-top:0}
+.sai-card-body ul,.sai-card-body ol{margin:0 0 6px;padding-left:22px}
+.sai-card-body li{margin:3px 0}
+.sai-card-body ul li::marker{color:#c3025a}
+.sai-card-lead{font-weight:700;color:#5a1238}
+.sai-card-note{margin-top:12px;padding:10px 12px;border-radius:12px;background:#fff4e2;color:#6b4200;font-weight:600}
+.sai-card-hl{padding:12px 14px;border-radius:14px;background:#fbe7f1;border:1px solid #f0c6dc;margin-bottom:6px}
+.sai-card-hl li{font-weight:800;color:#7d143f}
+.sai-person{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 18px;padding:16px 0;border-top:1px solid #f0d5e3}
+.sai-person:first-of-type{border-top:0;padding-top:4px}
+.sai-person img{grid-row:1 / span 20;width:150px;height:190px;object-fit:cover;object-position:top;border-radius:14px;border:3px solid #fbe7f1}
+.sai-person-head{display:grid;gap:1px;margin-bottom:4px}
+.sai-person-head strong{color:#9c0040;font-size:1.08rem}
+.sai-person-head span{font-weight:700;font-size:.86rem;color:#5a1238}
+.sai-person-head em{font-size:.84rem;color:#8b5a73}
+.sai-person p{margin:0 0 8px}
+.sai-card-qr{margin:14px 0 0;display:flex;gap:12px;align-items:center}
+.sai-card-qr img{width:120px;height:120px;border-radius:10px;border:1px solid #eed0df;background:#fff;object-fit:contain}
+.sai-card-qr figcaption{font-weight:700;color:#7d143f}
+.sai-card-actions{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px;border-top:1px solid #f0d5e3;background:#fff8fc}
+.sai-card-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 16px;border-radius:999px;border:1px solid #e4a3c4;background:#fff;color:#9c0040;font:800 .9rem/1.2 "Nunito Sans",system-ui,sans-serif;text-decoration:none;cursor:pointer}
+.sai-card-btn.primary{background:linear-gradient(135deg,#9c0040,#c3025a);border-color:#9c0040;color:#fff}
+.sai-card-btn:focus-visible{outline:3px solid #f9a800;outline-offset:2px}
+.sai-chip{display:block;max-width:92%;margin:0 0 12px;padding:9px 14px;border-radius:12px;border:1px dashed #d98ab2;background:#fff;color:#9c0040;font:800 .84rem/1.3 "Nunito Sans",system-ui,sans-serif;text-align:left;cursor:pointer}
+.sai-chip:hover{background:#fff0f8}
+@media(max-width:899px){.sai-viewer.sai-card-view{height:auto;max-height:min(60dvh,520px);padding:0}.sai-person{grid-template-columns:96px minmax(0,1fr);gap:2px 12px}.sai-person img{width:96px;height:124px}.sai-card-body{padding:14px 16px;font-size:.9rem}}
