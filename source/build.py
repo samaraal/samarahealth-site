@@ -4,7 +4,7 @@ import json, os, html
 from content import T
 
 OUT = __import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), '..')
-VERSION = '2.11.0'
+VERSION = '2.12.0'
 SITE = 'https://samarahealth.in'
 PHONE1, PHONE1_T = '+91 99767 35577', '+919976735577'
 PHONE2, PHONE2_T = '+91 73959 61616', '+917395961616'
@@ -157,6 +157,7 @@ def page(fname, title_key, desc, body, active=None, og_image='assets/photos/cent
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{html.escape(en_title)}</title>
 <meta name="description" content="{html.escape(desc)}">
+<meta name="robots" content="{"noindex, follow" if fname == "404.html" else "index, follow, max-image-preview:large"}">
 <link rel="canonical" href="{canonical}">
 <meta name="theme-color" content="#b01264">
 <meta name="color-scheme" content="light">
@@ -168,6 +169,9 @@ def page(fname, title_key, desc, body, active=None, og_image='assets/photos/cent
 <meta property="og:image" content="{SITE}/{og_image}">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(en_title)}">
+<meta name="twitter:description" content="{html.escape(desc)}">
+<meta name="twitter:image" content="{SITE}/{og_image}">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">

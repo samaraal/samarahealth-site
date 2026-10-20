@@ -26,7 +26,7 @@ window.SAMARA_I18N={
 "footer.rights": "All rights reserved.",
 "footer.emergency": "In a medical emergency, call 108.",
 "addr.line": "Samara Assisted Living, Mogappair West, Chennai – 600 037",
-"home.title": "Samara Health Care — Care that feels like family",
+"home.title": "Samara Health Care | Assisted Living in Mogappair, Chennai",
 "home.kicker": "Samara Health Care LLP",
 "home.h1": "Care that feels like family.",
 "home.lead": "Samara Health Care builds and runs care services for elders and for people recovering after a hospital stay — safe, respectful and transparent. Our first centre, Samara Assisted Living, is now open in Mogappair West, Chennai.",

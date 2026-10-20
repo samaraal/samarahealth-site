@@ -30,7 +30,7 @@ T = {
 "addr.line": ("Samara Assisted Living, Mogappair West, Chennai – 600 037", "சமரா அசிஸ்டட் லிவிங், முகப்பேர் மேற்கு, சென்னை – 600 037"),
 
 # ---------- home ----------
-"home.title": ("Samara Health Care — Care that feels like family", "சமரா ஹெல்த் கேர் — குடும்பம் போன்ற பராமரிப்பு"),
+"home.title": ("Samara Health Care | Assisted Living in Mogappair, Chennai", "சமரா ஹெல்த் கேர் — குடும்பம் போன்ற பராமரிப்பு"),
 "home.kicker": ("Samara Health Care LLP", "சமரா ஹெல்த் கேர் எல்எல்பி"),
 "home.h1": ("Care that feels like family.", "குடும்பம் போல அக்கறையுடன் பராமரிப்பு."),
 "home.lead": ("We build and run care services for elders and for people recovering after a hospital stay — safe, respectful and transparent. Our first centre, Samara Assisted Living, is now open in Mogappair West, Chennai.",
